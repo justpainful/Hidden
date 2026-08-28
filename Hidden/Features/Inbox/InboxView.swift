@@ -74,7 +74,7 @@ struct InboxView: View {
             }
             .refreshable { await app.model.refresh() }
             .sheet(isPresented: $showsSettings) { SettingsView() }
-            .fullScreenCover(item: $reviewQueueTarget) { target in
+            .fullScreenCover(item: reviewQueueTarget) { target in
                 ReviewView(queue: target.assets) { reviewQueue = nil }
             }
             .fullScreenCover(item: $viewerTarget) { target in

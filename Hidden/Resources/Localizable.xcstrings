@@ -1,7 +1,2136 @@
 {
-  "sourceLanguage" : "en",
-  "strings" : {
-
+  "sourceLanguage": "en",
+  "strings": {
+    "1 Hour": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ساعة واحدة"
+          }
+        }
+      }
+    },
+    "10 Minutes": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "10 دقائق"
+          }
+        }
+      }
+    },
+    "10 Seconds": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "10 ثوانٍ"
+          }
+        }
+      }
+    },
+    "15 Minutes": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "15 دقيقة"
+          }
+        }
+      }
+    },
+    "2 Minutes": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "دقيقتان"
+          }
+        }
+      }
+    },
+    "2 Seconds": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ثانيتان"
+          }
+        }
+      }
+    },
+    "25 Items": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "25 عنصرًا"
+          }
+        }
+      }
+    },
+    "3 Seconds": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3 ثوانٍ"
+          }
+        }
+      }
+    },
+    "30 Minutes": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "30 دقيقة"
+          }
+        }
+      }
+    },
+    "30 Seconds": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "30 ثانية"
+          }
+        }
+      }
+    },
+    "5 Minutes": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "5 دقائق"
+          }
+        }
+      }
+    },
+    "5 Seconds": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "5 ثوانٍ"
+          }
+        }
+      }
+    },
+    "50 Items": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "50 عنصرًا"
+          }
+        }
+      }
+    },
+    "A sample across time": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "عيّنة عبر الزمن"
+          }
+        }
+      }
+    },
+    "About": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حول"
+          }
+        }
+      }
+    },
+    "About the Hidden Album": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حول ألبوم المخفي"
+          }
+        }
+      }
+    },
+    "After 1 Minute": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بعد دقيقة"
+          }
+        }
+      }
+    },
+    "After 30 Seconds": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بعد 30 ثانية"
+          }
+        }
+      }
+    },
+    "After 5 Minutes": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بعد 5 دقائق"
+          }
+        }
+      }
+    },
+    "All Hidden": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كل المخفي"
+          }
+        }
+      }
+    },
+    "All reviewed": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تمت مراجعة الكل"
+          }
+        }
+      }
+    },
+    "Allow Photos Access": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "السماح بالوصول إلى الصور"
+          }
+        }
+      }
+    },
+    "Any": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الكل"
+          }
+        }
+      }
+    },
+    "App Favorite": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مفضلة التطبيق"
+          }
+        }
+      }
+    },
+    "App Favorites": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مفضلات التطبيق"
+          }
+        }
+      }
+    },
+    "Appearance": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المظهر"
+          }
+        }
+      }
+    },
+    "Apple protects the system Hidden album independently of any app.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تحمي Apple ألبوم المخفي في النظام بشكل مستقل عن أي تطبيق."
+          }
+        }
+      }
+    },
+    "Asset identifiers, tags, notes, ratings, viewing history, playback positions, collection rules and observation dates — a small local database. Never your photos or videos, and never anything sent off this device.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "معرّفات العناصر والوسوم والملاحظات والتقييمات وسجل المشاهدة ومواضع التشغيل وقواعد المجموعات وتواريخ الرصد — قاعدة بيانات محلية صغيرة. ليست صورك أو فيديوهاتك أبدًا، ولا يغادر أي شيء هذا الجهاز."
+          }
+        }
+      }
+    },
+    "Autoplay Next": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تشغيل التالي تلقائيًا"
+          }
+        }
+      }
+    },
+    "Bar chart of items captured per year": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "رسم بياني للعناصر الملتقطة في كل سنة"
+          }
+        }
+      }
+    },
+    "Blur Thumbnails": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تمويه المصغّرات"
+          }
+        }
+      }
+    },
+    "Browse, rediscover and organize the media in your Hidden album — with your library staying exactly where it is, in Apple Photos.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تصفح واكتشف ونظّم الوسائط في ألبوم المخفي — بينما تبقى مكتبتك في مكانها تمامًا، داخل تطبيق الصور."
+          }
+        }
+      }
+    },
+    "Buried": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مدفون"
+          }
+        }
+      }
+    },
+    "Captured": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تاريخ الالتقاط"
+          }
+        }
+      }
+    },
+    "Captured by Year": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الالتقاط حسب السنة"
+          }
+        }
+      }
+    },
+    "Captured on this date in past years": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التُقطت في هذا اليوم في سنوات ماضية"
+          }
+        }
+      }
+    },
+    "Check Again": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تحقق مرة أخرى"
+          }
+        }
+      }
+    },
+    "Clear All Filters": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مسح كل الفلاتر"
+          }
+        }
+      }
+    },
+    "Clear Filters": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مسح الفلاتر"
+          }
+        }
+      }
+    },
+    "Clear History": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مسح السجل"
+          }
+        }
+      }
+    },
+    "Clear Image Cache": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مسح ذاكرة الصور المؤقتة"
+          }
+        }
+      }
+    },
+    "Clear Viewing History": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مسح سجل المشاهدة"
+          }
+        }
+      }
+    },
+    "Clear all viewing history? Tags, notes and favorites stay.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "هل تريد مسح كل سجل المشاهدة؟ ستبقى الوسوم والملاحظات والمفضلات."
+          }
+        }
+      }
+    },
+    "Close": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إغلاق"
+          }
+        }
+      }
+    },
+    "Dark": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "داكن"
+          }
+        }
+      }
+    },
+    "Data": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "البيانات"
+          }
+        }
+      }
+    },
+    "Dates": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التواريخ"
+          }
+        }
+      }
+    },
+    "Deep Archive": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الأرشيف العميق"
+          }
+        }
+      }
+    },
+    "Default Sort": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الترتيب الافتراضي"
+          }
+        }
+      }
+    },
+    "Dimensions": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الأبعاد"
+          }
+        }
+      }
+    },
+    "Discover": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "استكشاف"
+          }
+        }
+      }
+    },
+    "Done": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تم"
+          }
+        }
+      }
+    },
+    "Duration": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المدة"
+          }
+        }
+      }
+    },
+    "Every item played once — nothing repeated.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "عُرض كل عنصر مرة واحدة — دون أي تكرار."
+          }
+        }
+      }
+    },
+    "Everything Hidden stores is a small local metadata layer. Your media lives in Apple Photos and is never duplicated or uploaded.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كل ما يخزّنه «المخفي» هو طبقة بيانات وصفية محلية صغيرة. وسائطك تبقى في تطبيق الصور ولا تُنسخ ولا تُرفع أبدًا."
+          }
+        }
+      }
+    },
+    "Favorite": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مفضلة"
+          }
+        }
+      }
+    },
+    "Favorited": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أُضيفت للمفضلة"
+          }
+        }
+      }
+    },
+    "Favorites": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المفضلة"
+          }
+        }
+      }
+    },
+    "Favorites you haven't seen lately": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مفضلات لم ترها مؤخرًا"
+          }
+        }
+      }
+    },
+    "Filters": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الفلاتر"
+          }
+        }
+      }
+    },
+    "First 25": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أول 25"
+          }
+        }
+      }
+    },
+    "First Observed Favorite": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أول رصد كمفضلة"
+          }
+        }
+      }
+    },
+    "First Observed by Hidden": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أول رصد في التطبيق"
+          }
+        }
+      }
+    },
+    "First look at your Hidden library": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أول نظرة على مكتبتك المخفية"
+          }
+        }
+      }
+    },
+    "Forgotten": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "منسي"
+          }
+        }
+      }
+    },
+    "Forgotten Videos": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "فيديوهات منسية"
+          }
+        }
+      }
+    },
+    "Has Location": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "يحتوي على موقع"
+          }
+        }
+      }
+    },
+    "Hidden": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المخفي"
+          }
+        }
+      }
+    },
+    "Hidden needs access to your Photos library to show your hidden media. You can allow it in Settings.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "يحتاج التطبيق إلى الوصول لمكتبة الصور لعرض وسائطك المخفية. يمكنك السماح بذلك من الإعدادات."
+          }
+        }
+      }
+    },
+    "Hidden never duplicates your originals; it only keeps its own small notes.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا ينسخ التطبيق ملفاتك الأصلية أبدًا؛ يحتفظ فقط بملاحظاته الصغيرة."
+          }
+        }
+      }
+    },
+    "Hidden's own Face ID lock protects this app. It is independent of Apple's protection and cannot unlock Apple's Hidden album.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "قفل بصمة الوجه في هذا التطبيق يحمي التطبيق نفسه فقط، وهو مستقل عن حماية Apple ولا يمكنه فتح ألبوم المخفي الخاص بالنظام."
+          }
+        }
+      }
+    },
+    "If your Hidden album appears empty here, either nothing is hidden, or the system protection is on. Turning that protection off in Photos settings makes hidden media visible to this app.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إذا ظهر ألبوم المخفي فارغًا هنا، فإما أنه لا توجد عناصر مخفية، أو أن حماية النظام مفعّلة. إيقاف تلك الحماية من إعدادات الصور يجعل الوسائط المخفية مرئية لهذا التطبيق."
+          }
+        }
+      }
+    },
+    "Immediately": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "فورًا"
+          }
+        }
+      }
+    },
+    "In Pool": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "في المجموعة"
+          }
+        }
+      }
+    },
+    "In This App": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "في هذا التطبيق"
+          }
+        }
+      }
+    },
+    "Inbox": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الوارد"
+          }
+        }
+      }
+    },
+    "Incognito": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التخفي"
+          }
+        }
+      }
+    },
+    "Incognito stops the app recording any viewing history. Read Only stops it changing anything in Apple Photos.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "وضع التخفي يمنع تسجيل أي سجل مشاهدة. وضع القراءة فقط يمنع التطبيق من تغيير أي شيء في تطبيق الصور."
+          }
+        }
+      }
+    },
+    "Info": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "معلومات"
+          }
+        }
+      }
+    },
+    "Insights": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إحصاءات"
+          }
+        }
+      }
+    },
+    "Keep Hidden": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إبقاؤه مخفيًا"
+          }
+        }
+      }
+    },
+    "Kind": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "النوع"
+          }
+        }
+      }
+    },
+    "Landscape": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أفقي"
+          }
+        }
+      }
+    },
+    "Last Viewed": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "آخر مشاهدة"
+          }
+        }
+      }
+    },
+    "Latest Modified": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الأحدث تعديلًا"
+          }
+        }
+      }
+    },
+    "Length": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الطول"
+          }
+        }
+      }
+    },
+    "Library": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المكتبة"
+          }
+        }
+      }
+    },
+    "Light": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "فاتح"
+          }
+        }
+      }
+    },
+    "Live": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حي"
+          }
+        }
+      }
+    },
+    "Live Photo": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "صورة حية"
+          }
+        }
+      }
+    },
+    "Live Photos": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الصور الحية"
+          }
+        }
+      }
+    },
+    "Location": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الموقع"
+          }
+        }
+      }
+    },
+    "Lock Now": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "قفل الآن"
+          }
+        }
+      }
+    },
+    "Lock the app with Face ID, separately from anything Apple protects.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اقفل التطبيق ببصمة الوجه، بشكل مستقل عن أي حماية من Apple."
+          }
+        }
+      }
+    },
+    "Lock with Face ID": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "القفل ببصمة الوجه"
+          }
+        }
+      }
+    },
+    "Longer Than": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أطول من"
+          }
+        }
+      }
+    },
+    "Longest First": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الأطول أولًا"
+          }
+        }
+      }
+    },
+    "Mark Reviewed": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "وضع علامة تمت المراجعة"
+          }
+        }
+      }
+    },
+    "Media": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الوسائط"
+          }
+        }
+      }
+    },
+    "Media Types": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أنواع الوسائط"
+          }
+        }
+      }
+    },
+    "Modified": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تاريخ التعديل"
+          }
+        }
+      }
+    },
+    "Most Viewed": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الأكثر مشاهدة"
+          }
+        }
+      }
+    },
+    "Mute Videos by Default": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كتم الفيديو افتراضيًا"
+          }
+        }
+      }
+    },
+    "Never Finished": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لم يكتمل"
+          }
+        }
+      }
+    },
+    "Never Viewed": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لم يُشاهد"
+          }
+        }
+      }
+    },
+    "Never opened in this app": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لم يُفتح في هذا التطبيق"
+          }
+        }
+      }
+    },
+    "New": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "جديد"
+          }
+        }
+      }
+    },
+    "Newest Captured": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الأحدث التقاطًا"
+          }
+        }
+      }
+    },
+    "Newly Favorited": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أُضيفت حديثًا للمفضلة"
+          }
+        }
+      }
+    },
+    "Newly Observed": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "رُصدت حديثًا"
+          }
+        }
+      }
+    },
+    "Next": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التالي"
+          }
+        }
+      }
+    },
+    "No Delete Mode": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "وضع بلا حذف"
+          }
+        }
+      }
+    },
+    "No Hidden Media Available": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا توجد وسائط مخفية متاحة"
+          }
+        }
+      }
+    },
+    "No Limit": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بلا حد"
+          }
+        }
+      }
+    },
+    "No Longer Here": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لم تعد هنا"
+          }
+        }
+      }
+    },
+    "No Photos Access": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا يوجد وصول للصور"
+          }
+        }
+      }
+    },
+    "No Two Videos in a Row": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا فيديوهان متتاليان"
+          }
+        }
+      }
+    },
+    "Not downloaded from iCloud": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لم تُنزّل من iCloud"
+          }
+        }
+      }
+    },
+    "Not viewed in over 90 days": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لم تُشاهد منذ أكثر من 90 يومًا"
+          }
+        }
+      }
+    },
+    "Nothing is uploaded, tracked or analyzed anywhere else.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا يُرفع أي شيء ولا يُتتبع ولا يُحلل في أي مكان آخر."
+          }
+        }
+      }
+    },
+    "Nothing new since the last check.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا جديد منذ آخر فحص."
+          }
+        }
+      }
+    },
+    "Old Favorites": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مفضلات قديمة"
+          }
+        }
+      }
+    },
+    "Old, never viewed, not a favorite": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "قديم، لم يُشاهد، وليس مفضلًا"
+          }
+        }
+      }
+    },
+    "Oldest": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الأقدم"
+          }
+        }
+      }
+    },
+    "Oldest Captured": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الأقدم التقاطًا"
+          }
+        }
+      }
+    },
+    "Oldest Modified": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الأقدم تعديلًا"
+          }
+        }
+      }
+    },
+    "On This Day": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "في مثل هذا اليوم"
+          }
+        }
+      }
+    },
+    "On this device": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "على هذا الجهاز"
+          }
+        }
+      }
+    },
+    "One From Every Month": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "واحدة من كل شهر"
+          }
+        }
+      }
+    },
+    "Open Settings": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "فتح الإعدادات"
+          }
+        }
+      }
+    },
+    "Order": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الترتيب"
+          }
+        }
+      }
+    },
+    "Panoramas": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "البانوراما"
+          }
+        }
+      }
+    },
+    "Pause": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إيقاف مؤقت"
+          }
+        }
+      }
+    },
+    "Photo": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "صورة"
+          }
+        }
+      }
+    },
+    "Photo Duration": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مدة عرض الصورة"
+          }
+        }
+      }
+    },
+    "Photos": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الصور"
+          }
+        }
+      }
+    },
+    "Photos First": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الصور أولًا"
+          }
+        }
+      }
+    },
+    "Photos Only": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الصور فقط"
+          }
+        }
+      }
+    },
+    "Photos stays the source of truth": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تطبيق الصور يبقى المصدر الأساسي"
+          }
+        }
+      }
+    },
+    "Pin": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تثبيت"
+          }
+        }
+      }
+    },
+    "Pinned": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المثبتة"
+          }
+        }
+      }
+    },
+    "Pinned in this app": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مثبتة في هذا التطبيق"
+          }
+        }
+      }
+    },
+    "Play": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تشغيل"
+          }
+        }
+      }
+    },
+    "Play From": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التشغيل من"
+          }
+        }
+      }
+    },
+    "Playback": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التشغيل"
+          }
+        }
+      }
+    },
+    "Portrait": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "عمودي"
+          }
+        }
+      }
+    },
+    "Previous": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "السابق"
+          }
+        }
+      }
+    },
+    "Privacy": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الخصوصية"
+          }
+        }
+      }
+    },
+    "Queue finished": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "انتهت القائمة"
+          }
+        }
+      }
+    },
+    "Random": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "عشوائي"
+          }
+        }
+      }
+    },
+    "Rated": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مقيّمة"
+          }
+        }
+      }
+    },
+    "Read Only Mode": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "وضع القراءة فقط"
+          }
+        }
+      }
+    },
+    "Recently Favorited": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المفضلة حديثًا"
+          }
+        }
+      }
+    },
+    "Recently Observed": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المرصودة حديثًا"
+          }
+        }
+      }
+    },
+    "Rediscovery": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إعادة الاكتشاف"
+          }
+        }
+      }
+    },
+    "Remove Favorite": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إزالة من المفضلة"
+          }
+        }
+      }
+    },
+    "Require Again": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "طلب القفل مجددًا"
+          }
+        }
+      }
+    },
+    "Reset App Data": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إعادة تعيين بيانات التطبيق"
+          }
+        }
+      }
+    },
+    "Reset Everything": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إعادة تعيين كل شيء"
+          }
+        }
+      }
+    },
+    "Reset everything Hidden knows — tags, history, collections, queues? Your photos and videos in Apple Photos are not touched.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "هل تريد إعادة تعيين كل ما يعرفه التطبيق — الوسوم والسجل والمجموعات وقوائم التشغيل؟ صورك وفيديوهاتك في تطبيق الصور لن تُمس."
+          }
+        }
+      }
+    },
+    "Reshuffle": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "خلط جديد"
+          }
+        }
+      }
+    },
+    "Resume Last Session": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "استئناف آخر جلسة"
+          }
+        }
+      }
+    },
+    "Review": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المراجعة"
+          }
+        }
+      }
+    },
+    "Review All": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مراجعة الكل"
+          }
+        }
+      }
+    },
+    "Review Later": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مراجعة لاحقًا"
+          }
+        }
+      }
+    },
+    "Reviewed": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تمت المراجعة"
+          }
+        }
+      }
+    },
+    "Screenshot": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لقطة شاشة"
+          }
+        }
+      }
+    },
+    "Screenshots": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لقطات الشاشة"
+          }
+        }
+      }
+    },
+    "Seen Once": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "شوهدت مرة"
+          }
+        }
+      }
+    },
+    "Select": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تحديد"
+          }
+        }
+      }
+    },
+    "Session": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الجلسة"
+          }
+        }
+      }
+    },
+    "Settings": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الإعدادات"
+          }
+        }
+      }
+    },
+    "Shape": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الشكل"
+          }
+        }
+      }
+    },
+    "Shortest First": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الأقصر أولًا"
+          }
+        }
+      }
+    },
+    "Shuffle": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "خلط"
+          }
+        }
+      }
+    },
+    "Slow Motion": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الحركة البطيئة"
+          }
+        }
+      }
+    },
+    "Sort": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الترتيب"
+          }
+        }
+      }
+    },
+    "Source": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المصدر"
+          }
+        }
+      }
+    },
+    "Square": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مربع"
+          }
+        }
+      }
+    },
+    "Start Shuffle": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بدء الخلط"
+          }
+        }
+      }
+    },
+    "State": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الحالة"
+          }
+        }
+      }
+    },
+    "System": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "النظام"
+          }
+        }
+      }
+    },
+    "Tagged": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "موسومة"
+          }
+        }
+      }
+    },
+    "The oldest hidden media": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أقدم الوسائط المخفية"
+          }
+        }
+      }
+    },
+    "Time Lapse": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الفاصل الزمني"
+          }
+        }
+      }
+    },
+    "Total Hidden": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إجمالي المخفي"
+          }
+        }
+      }
+    },
+    "True Random": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "عشوائي بحت"
+          }
+        }
+      }
+    },
+    "Type": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "النوع"
+          }
+        }
+      }
+    },
+    "Undo": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تراجع"
+          }
+        }
+      }
+    },
+    "Unlock": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "فتح القفل"
+          }
+        }
+      }
+    },
+    "Unlock Hidden": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "فتح قفل التطبيق"
+          }
+        }
+      }
+    },
+    "Unreviewed": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لم تُراجع"
+          }
+        }
+      }
+    },
+    "Unseen": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "غير مشاهدة"
+          }
+        }
+      }
+    },
+    "Version": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الإصدار"
+          }
+        }
+      }
+    },
+    "Video": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "فيديو"
+          }
+        }
+      }
+    },
+    "Video Duration": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مدة الفيديو"
+          }
+        }
+      }
+    },
+    "Video Time": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "زمن الفيديو"
+          }
+        }
+      }
+    },
+    "Videos": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الفيديوهات"
+          }
+        }
+      }
+    },
+    "Videos First": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الفيديوهات أولًا"
+          }
+        }
+      }
+    },
+    "Videos Only": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الفيديوهات فقط"
+          }
+        }
+      }
+    },
+    "Videos not played in a while": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "فيديوهات لم تُشغّل منذ فترة"
+          }
+        }
+      }
+    },
+    "Viewed": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "شوهدت"
+          }
+        }
+      }
+    },
+    "Viewed exactly once": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "شوهدت مرة واحدة بالضبط"
+          }
+        }
+      }
+    },
+    "Views": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المشاهدات"
+          }
+        }
+      }
+    },
+    "Weighting": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الترجيح"
+          }
+        }
+      }
+    },
+    "What Hidden stores": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ما الذي يخزّنه التطبيق"
+          }
+        }
+      }
+    },
+    "With Location": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مع موقع"
+          }
+        }
+      }
+    },
+    "Without Location": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بدون موقع"
+          }
+        }
+      }
+    },
+    "Yes": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "نعم"
+          }
+        }
+      }
+    },
+    "You're caught up.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أنت على اطلاع بكل شيء."
+          }
+        }
+      }
+    },
+    "Your highest view counts": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أعلى أعداد المشاهدة لديك"
+          }
+        }
+      }
+    },
+    "Your own lock": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "قفلك الخاص"
+          }
+        }
+      }
+    },
+    "Your private favorites": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مفضلاتك الخاصة"
+          }
+        }
+      }
+    }
   },
-  "version" : "1.0"
+  "version": "1.0"
 }
