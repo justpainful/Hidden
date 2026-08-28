@@ -76,7 +76,7 @@ private struct PlaceRow: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(label ?? PlaceLabelCache.shared.fallbackLabel(for: cluster))
                     .font(Typo.control)
-                Text(String(localized: "\(cluster.count.formatted()) items"))
+                Text(String(format: String(localized: "%@ items"), cluster.count.formatted()))
                     .font(Typo.meta)
                     .foregroundStyle(Palette.textSecondary)
             }

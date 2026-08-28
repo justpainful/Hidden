@@ -337,6 +337,11 @@ AR = {
     "Related": "ذات صلة",
     "Places": "الأماكن",
     "Share": "مشاركة",
+    "%@ items waiting for a decision.": "%@ عنصرًا بانتظار قرار.",
+    "%@ items": "%@ عنصرًا",
+    "%@ videos": "%@ فيديو",
+    "%@ active": "%@ مفعّلة",
+    "%@ photos in a burst": "%@ صورة في دفعة واحدة",
     "Areas from existing location data": "مناطق من بيانات الموقع الموجودة",
     "No Location Data": "لا توجد بيانات موقع",
     "Media with location information would be grouped into areas here.":

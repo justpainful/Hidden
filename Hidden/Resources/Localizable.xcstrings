@@ -1,6 +1,56 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "%@ active": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ مفعّلة"
+          }
+        }
+      }
+    },
+    "%@ items": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ عنصرًا"
+          }
+        }
+      }
+    },
+    "%@ items waiting for a decision.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ عنصرًا بانتظار قرار."
+          }
+        }
+      }
+    },
+    "%@ photos in a burst": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ صورة في دفعة واحدة"
+          }
+        }
+      }
+    },
+    "%@ videos": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ فيديو"
+          }
+        }
+      }
+    },
     "1 Hour": {
       "localizations": {
         "ar": {

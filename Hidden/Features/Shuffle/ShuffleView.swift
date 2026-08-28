@@ -175,7 +175,7 @@ struct ShuffleView: View {
                                 Text(queue.name)
                                     .font(Typo.control)
                                     .foregroundStyle(Palette.textPrimary)
-                                Text(String(localized: "\(members.count.formatted()) items"))
+                                Text(String(format: String(localized: "%@ items"), members.count.formatted()))
                                     .font(Typo.meta)
                                     .foregroundStyle(Palette.textSecondary)
                             }

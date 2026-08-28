@@ -33,7 +33,7 @@ struct SmartCollectionEditor: View {
                                 .foregroundStyle(Palette.textPrimary)
                             Spacer()
                             Text(filter.isActive
-                                 ? String(localized: "\(filter.activeCount.formatted()) active")
+                                 ? String(format: String(localized: "%@ active"), filter.activeCount.formatted())
                                  : String(localized: "Everything"))
                                 .foregroundStyle(Palette.textSecondary)
                         }

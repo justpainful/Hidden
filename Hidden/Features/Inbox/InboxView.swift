@@ -109,7 +109,8 @@ struct InboxView: View {
                     .font(Typo.label)
                     .foregroundStyle(Palette.textSecondary)
             } else if let refreshed = app.model.lastRefreshAt {
-                Text("Updated \(refreshed.formatted(date: .omitted, time: .shortened))")
+                Text(String(format: String(localized: "Updated %@"),
+                            refreshed.formatted(date: .omitted, time: .shortened)))
                     .font(Typo.meta)
                     .foregroundStyle(Palette.textTertiary)
             }
@@ -227,9 +228,10 @@ struct InboxView: View {
     }
 
     private func sessionSummary(_ session: HiddenSession) -> String {
-        var parts = [String(localized: "\(session.count.formatted()) items")]
+        var parts = [String(format: String(localized: "%@ items"), session.count.formatted())]
         if session.videoCount > 0 {
-            parts.append(String(localized: "\(session.videoCount.formatted()) videos"))
+            parts.append(String(format: String(localized: "%@ videos"),
+                                session.videoCount.formatted()))
             parts.append(session.videoSeconds.shortDuration)
         }
         return parts.joined(separator: " · ")
@@ -240,7 +242,8 @@ struct InboxView: View {
             Text("Review")
                 .font(Typo.sectionTitle)
 
-            Text("\(unreviewed.count.formatted()) items waiting for a decision.")
+            Text(String(format: String(localized: "%@ items waiting for a decision."),
+                        unreviewed.count.formatted()))
                 .font(Typo.label)
                 .foregroundStyle(Palette.textSecondary)
 

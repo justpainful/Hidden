@@ -423,8 +423,15 @@ struct AssetInfoView: View {
             }
             .navigationTitle(String(localized: "Info"))
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button(String(localized: "Done")) { dismiss() }
+                }
+            }
         }
     }
+
+    @Environment(\.dismiss) private var dismiss
 
     private var typeText: String {
         if asset.isVideo { return String(localized: "Video") }

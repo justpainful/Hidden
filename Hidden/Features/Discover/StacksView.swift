@@ -44,7 +44,7 @@ struct StacksListView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(stack.cover?.creationDate.formatted(date: .abbreviated, time: .shortened) ?? "")
                     .font(Typo.control)
-                Text(String(localized: "\(stack.count.formatted()) photos in a burst"))
+                Text(String(format: String(localized: "%@ photos in a burst"), stack.count.formatted()))
                     .font(Typo.meta)
                     .foregroundStyle(Palette.textSecondary)
             }
