@@ -23,6 +23,8 @@ struct AssetMeta: Sendable, Hashable {
     /// Seconds into the video the user last stopped at.
     var playbackPosition: TimeInterval = 0
     var playbackCompleted: Bool = false
+    /// On-device recognized text, when the optional index has run over this asset.
+    var ocrText: String?
 
     static let empty = AssetMeta()
 }

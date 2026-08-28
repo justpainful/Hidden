@@ -18,6 +18,8 @@ struct ViewerView: View {
     @State private var confirmDelete = false
     @State private var actionError: String?
     @State private var presentedAsset: HiddenAsset?
+    @State private var shareImage: UIImage?
+    @State private var isPreparingShare = false
 
     private var current: HiddenAsset? {
         assets.indices.contains(index) ? assets[index] : nil
@@ -96,6 +98,13 @@ struct ViewerView: View {
         }
         .fullScreenCover(item: $presentedAsset) { asset in
             PresentationView(asset: asset) { presentedAsset = nil }
+        }
+        .sheet(isPresented: Binding(get: { shareImage != nil },
+                                    set: { if !$0 { shareImage = nil } })) {
+            if let shareImage {
+                ActivityView(items: [shareImage])
+                    .presentationDetents([.medium, .large])
+            }
         }
         .alert(String(localized: "That didn't work"),
                isPresented: Binding(get: { actionError != nil },
@@ -199,6 +208,21 @@ struct ViewerView: View {
             } label: {
                 Label(String(localized: "Present This Item"), systemImage: "person.2.crop.square.stack")
             }
+            if !current.isVideo {
+                Button {
+                    guard !isPreparingShare else { return }
+                    isPreparingShare = true
+                    Task {
+                        shareImage = await app.media.image(
+                            for: current.localIdentifier,
+                            side: CGFloat(max(current.pixelWidth, current.pixelHeight)),
+                            purpose: .display)
+                        isPreparingShare = false
+                    }
+                } label: {
+                    Label(String(localized: "Share"), systemImage: "square.and.arrow.up")
+                }
+            }
 
             if !app.settings.readOnlyMode {
                 Divider()
@@ -240,14 +264,28 @@ private struct ViewerPage: View {
     var body: some View {
         if asset.isVideo {
             HiddenVideoPlayer(asset: asset, isCurrent: isCurrent)
+        } else if asset.isLivePhoto {
+            LivePhotoPage(asset: asset, isCurrent: isCurrent)
         } else {
             ZoomableAssetView(assetID: asset.localIdentifier)
         }
     }
 }
 
+/// The system share sheet. Sharing hands the pixels to whatever the user picks — a
+/// deliberate act, from the deliberate viewer, never from a grid.
+struct ActivityView: UIViewControllerRepresentable {
+    let items: [Any]
+
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        UIActivityViewController(activityItems: items, applicationActivities: nil)
+    }
+
+    func updateUIViewController(_ controller: UIActivityViewController, context: Context) {}
+}
+
 /// Pinch and double-tap zoom for one photo.
-private struct ZoomableAssetView: View {
+struct ZoomableAssetView: View {
     let assetID: String
 
     @State private var scale: CGFloat = 1
@@ -311,6 +349,13 @@ struct AssetInfoView: View {
     let asset: HiddenAsset
     let meta: AssetMeta
 
+    @Environment(\.app) private var app
+
+    private var related: [HiddenAsset] {
+        RelatedFinder.related(to: asset, in: app.model.assets,
+                              meta: app.model.metaByID, limit: 20)
+    }
+
     var body: some View {
         NavigationStack {
             List {
@@ -349,6 +394,30 @@ struct AssetInfoView: View {
                 if asset.hasLocation {
                     Section(String(localized: "Location")) {
                         row(String(localized: "Has Location"), String(localized: "Yes"))
+                    }
+                }
+                if !related.isEmpty {
+                    Section {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: Space.s) {
+                                ForEach(related) { relatedAsset in
+                                    AssetImageView(assetID: relatedAsset.localIdentifier,
+                                                   targetSide: 120)
+                                        .frame(width: 72, height: 72)
+                                        .clipShape(.rect(cornerRadius: Radius.thumb))
+                                        .blurredIfNeeded()
+                                        .accessibilityHidden(true)
+                                }
+                            }
+                        }
+                        NavigationLink(String(localized: "See All Related")) {
+                            CollectionResultsView(title: String(localized: "Related"),
+                                                  assets: related)
+                        }
+                    } header: {
+                        Text("Related")
+                    } footer: {
+                        Text("Captured around the same time, the same day, the same session, or sharing a tag.")
                     }
                 }
             }

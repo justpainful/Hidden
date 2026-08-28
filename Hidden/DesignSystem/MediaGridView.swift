@@ -13,8 +13,9 @@ struct MediaGridView: View {
     @Environment(\.app) private var app
     @Environment(\.displayScale) private var displayScale
     /// The centre of the last warmed window, so scrolling only re-warms every `warmStep`
-    /// tiles instead of on every appearance.
-    @State private var warmedCentre = Int.min
+    /// tiles instead of on every appearance. A finite sentinel: `Int.min` here would make
+    /// the very first `index - warmedCentre` overflow, and that is a trap, not a wrap.
+    @State private var warmedCentre = -1_000_000
 
     private let warmStep = 12
     private let warmAhead = 48
@@ -31,7 +32,7 @@ struct MediaGridView: View {
             }
         }
         .onDisappear {
-            warmedCentre = .min
+            warmedCentre = -1_000_000
         }
     }
 

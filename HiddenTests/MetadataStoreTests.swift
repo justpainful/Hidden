@@ -6,7 +6,7 @@ import Testing
 struct MetadataStoreTests {
 
     private func makeStore() -> MetadataStore {
-        MetadataStore(context: HiddenStore.makeContainer(inMemory: true).mainContext)
+        SharedTestStore.freshStore()
     }
 
     @Test("Recording a view sets first/last viewed and increments the count")

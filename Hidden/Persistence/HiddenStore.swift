@@ -242,12 +242,12 @@ final class MetadataStore {
     // MARK: Queues
 
     func allQueues() -> [QueueRecord] {
-        // `== true` rather than the bare Bool: #Predicate's conversion of a lone boolean
-        // property is unreliable at runtime, and the failure is a crash, not an error.
+        // Filtered in Swift rather than in a #Predicate: boolean predicates have crashed at
+        // runtime on this schema, and a queue list is never large enough to care.
         let descriptor = FetchDescriptor<QueueRecord>(
-            predicate: #Predicate { $0.isSaved == true },
             sortBy: [SortDescriptor(\.createdAt, order: .reverse)])
-        return (try? context.fetch(descriptor)) ?? []
+        let all = (try? context.fetch(descriptor)) ?? []
+        return all.filter(\.isSaved)
     }
 
     func addQueue(name: String, itemIDs: [String]) {

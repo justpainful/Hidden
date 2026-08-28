@@ -18,6 +18,7 @@ final class AppEnvironment {
     let model: LibraryModel
     let lock: AppLockService
     let settings: AppSettings
+    let textIndex: TextIndexService
 
     init(mock: Bool = LaunchOptions.useMockLibrary,
          inMemory: Bool = false) {
@@ -43,7 +44,9 @@ final class AppEnvironment {
         self.lock = lock
         self.libraryService = library
         self.media = media
-        self.model = LibraryModel(library: library, media: media, store: store)
+        let model = LibraryModel(library: library, media: media, store: store)
+        self.model = model
+        self.textIndex = TextIndexService(model: model, store: store)
 
         store.recordsHistory = !settings.incognito
         store.keepsChangeLog = settings.keepsChangeLog

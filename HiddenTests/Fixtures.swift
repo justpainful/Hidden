@@ -1,5 +1,25 @@
 import Foundation
+import SwiftData
 @testable import Hidden
+
+/// One in-memory container for every store-backed test.
+///
+/// Each test used to build its own `ModelContainer`, and a process that churns through a
+/// dozen containers over the same schema is a process SwiftData sometimes takes down —
+/// which read in CI as unrelated tests "failing" together. One container, wiped between
+/// tests, removes the churn; tests are `@MainActor` and synchronous, so they cannot
+/// interleave mid-body.
+@MainActor
+enum SharedTestStore {
+    static let container = HiddenStore.makeContainer(inMemory: true)
+
+    /// A store over the shared container with nothing in it.
+    static func freshStore() -> MetadataStore {
+        let store = MetadataStore(context: container.mainContext)
+        store.resetEverything()
+        return store
+    }
+}
 
 /// Hand-built assets and metadata for tests that need exact control, next to the seeded
 /// mock generator for tests that need scale.

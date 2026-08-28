@@ -35,6 +35,10 @@ final class AssetRecord {
     var playbackCompleted: Bool
     var lastPlaybackAt: Date?
 
+    // Optional on-device intelligence. Nil means "not indexed yet"; empty means "indexed,
+    // nothing found". Cleared wholesale when the user clears the index.
+    var ocrText: String?
+
     init(assetID: String, firstSeenAt: Date = .now) {
         self.assetID = assetID
         self.firstSeenAt = firstSeenAt
@@ -70,7 +74,8 @@ final class AssetRecord {
                   rating: rating,
                   tagNames: Set(tagNames),
                   playbackPosition: playbackPosition,
-                  playbackCompleted: playbackCompleted)
+                  playbackCompleted: playbackCompleted,
+                  ocrText: ocrText)
     }
 }
 

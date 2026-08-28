@@ -291,6 +291,16 @@
         }
       }
     },
+    "Areas from existing location data": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مناطق من بيانات الموقع الموجودة"
+          }
+        }
+      }
+    },
     "Asset identifiers, tags, notes, ratings, viewing history, playback positions, collection rules and observation dates — a small local database. Never your photos or videos, and never anything sent off this device.": {
       "localizations": {
         "ar": {
@@ -391,6 +401,16 @@
         }
       }
     },
+    "Bursts captured together": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "دفعات التُقطت معًا"
+          }
+        }
+      }
+    },
     "Cancel": {
       "localizations": {
         "ar": {
@@ -417,6 +437,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "تاريخ الالتقاط"
+          }
+        }
+      }
+    },
+    "Captured around the same time, the same day, the same session, or sharing a tag.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التُقطت في وقت متقارب، أو في نفس اليوم، أو في نفس الجلسة، أو تتشارك وسمًا."
           }
         }
       }
@@ -501,6 +531,16 @@
         }
       }
     },
+    "Clear Text Index": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مسح فهرس النصوص"
+          }
+        }
+      }
+    },
     "Clear Viewing History": {
       "localizations": {
         "ar": {
@@ -531,12 +571,32 @@
         }
       }
     },
+    "Compare": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مقارنة"
+          }
+        }
+      }
+    },
     "Continue Watching": {
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
             "value": "متابعة المشاهدة"
+          }
+        }
+      }
+    },
+    "Cover While Screen Recording": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تغطية أثناء تسجيل الشاشة"
           }
         }
       }
@@ -737,6 +797,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "الفلاتر"
+          }
+        }
+      }
+    },
+    "Find Text in Photos": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "البحث عن نص داخل الصور"
           }
         }
       }
@@ -981,6 +1051,16 @@
         }
       }
     },
+    "Indexed": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المفهرَس"
+          }
+        }
+      }
+    },
     "Inferred from when this app first observed each item — not Apple's own history.": {
       "localizations": {
         "ar": {
@@ -1007,6 +1087,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "إحصاءات"
+          }
+        }
+      }
+    },
+    "Items captured in the same second with the same dimensions would appear here.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "العناصر الملتقطة في نفس الثانية وبنفس الأبعاد ستظهر هنا."
           }
         }
       }
@@ -1231,6 +1321,16 @@
         }
       }
     },
+    "Media with location information would be grouped into areas here.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الوسائط التي تحمل معلومات موقع ستُجمع هنا في مناطق."
+          }
+        }
+      }
+    },
     "Modified": {
       "localizations": {
         "ar": {
@@ -1451,6 +1551,16 @@
         }
       }
     },
+    "No Location Data": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا توجد بيانات موقع"
+          }
+        }
+      }
+    },
     "No Longer Here": {
       "localizations": {
         "ar": {
@@ -1467,6 +1577,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "لا يوجد وصول للصور"
+          }
+        }
+      }
+    },
+    "No Possible Duplicates": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا توجد تكرارات محتملة"
+          }
+        }
+      }
+    },
+    "No Stacks": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا توجد مجموعات متتابعة"
           }
         }
       }
@@ -1701,6 +1831,26 @@
         }
       }
     },
+    "Pause Indexing": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إيقاف الفهرسة مؤقتًا"
+          }
+        }
+      }
+    },
+    "Paused — battery is low.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "توقفت مؤقتًا — البطارية منخفضة."
+          }
+        }
+      }
+    },
     "Photo": {
       "localizations": {
         "ar": {
@@ -1791,6 +1941,16 @@
         }
       }
     },
+    "Places": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الأماكن"
+          }
+        }
+      }
+    },
     "Play": {
       "localizations": {
         "ar": {
@@ -1837,6 +1997,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "عمودي"
+          }
+        }
+      }
+    },
+    "Possible Duplicates": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تكرارات محتملة"
           }
         }
       }
@@ -2011,6 +2181,16 @@
         }
       }
     },
+    "Recognizes text inside photos on this device so search can find it. Nothing is uploaded; iCloud originals are never downloaded for indexing.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "يتعرف على النص داخل الصور على هذا الجهاز ليتمكن البحث من إيجاده. لا يُرفع أي شيء، ولا تُنزَّل النسخ الأصلية من iCloud للفهرسة أبدًا."
+          }
+        }
+      }
+    },
     "Rediscover": {
       "localizations": {
         "ar": {
@@ -2027,6 +2207,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "إعادة الاكتشاف"
+          }
+        }
+      }
+    },
+    "Related": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ذات صلة"
           }
         }
       }
@@ -2101,6 +2291,16 @@
         }
       }
     },
+    "Resume Indexing": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "استئناف الفهرسة"
+          }
+        }
+      }
+    },
     "Resume Last Session": {
       "localizations": {
         "ar": {
@@ -2161,6 +2361,16 @@
         }
       }
     },
+    "Same second, same dimensions": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "نفس الثانية ونفس الأبعاد"
+          }
+        }
+      }
+    },
     "Save": {
       "localizations": {
         "ar": {
@@ -2207,6 +2417,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "لقطات الشاشة"
+          }
+        }
+      }
+    },
+    "See All Related": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "عرض كل ذات الصلة"
           }
         }
       }
@@ -2267,6 +2487,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "الشكل"
+          }
+        }
+      }
+    },
+    "Share": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مشاركة"
           }
         }
       }
@@ -2361,6 +2591,36 @@
         }
       }
     },
+    "Stack": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مجموعة متتابعة"
+          }
+        }
+      }
+    },
+    "Stacks": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المجموعات المتتابعة"
+          }
+        }
+      }
+    },
+    "Stacks appear when several photos were captured within seconds of each other.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تظهر المجموعات المتتابعة عندما تُلتقط عدة صور خلال ثوانٍ من بعضها."
+          }
+        }
+      }
+    },
     "Start Shuffle": {
       "localizations": {
         "ar": {
@@ -2387,6 +2647,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "تُخزَّن مراجع للعناصر المحددة — وليست نسخًا أبدًا."
+          }
+        }
+      }
+    },
+    "Structure": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "البنية"
           }
         }
       }

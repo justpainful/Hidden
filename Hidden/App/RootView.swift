@@ -35,14 +35,19 @@ struct RootView: View {
     /// True while the scene is not active, so the app switcher never shows readable media.
     @State private var isCovered = false
     @State private var didApplyLaunchTab = false
+    /// True while any connected screen reports being recorded or mirrored.
+    @State private var isScreenCaptured = false
 
     var body: some View {
         ZStack {
             content
 
             // The cover sits above everything, opaque, before iOS takes the switcher
-            // snapshot. It also stands in front while Face ID runs.
-            if isCovered || app.lock.isLocked {
+            // snapshot. It also stands in front while Face ID runs, and — when the user has
+            // asked for it — while the screen is being recorded or mirrored. iOS offers no
+            // way to *prevent* capture; covering is the honest maximum, and Settings says so.
+            if isCovered || app.lock.isLocked
+                || (isScreenCaptured && app.settings.obscureWhileCaptured) {
                 PrivacyCoverView(showsUnlock: app.lock.isLocked && !isCovered)
                     .transition(.opacity)
             }
@@ -78,6 +83,10 @@ struct RootView: View {
             if app.accessReady {
                 await app.model.refresh()
             }
+        }
+        .onReceive(NotificationCenter.default.publisher(
+            for: UIScreen.capturedDidChangeNotification)) { _ in
+            isScreenCaptured = UIScreen.screens.contains(where: \.isCaptured)
         }
     }
 

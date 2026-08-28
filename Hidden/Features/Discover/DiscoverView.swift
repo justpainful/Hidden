@@ -213,6 +213,42 @@ struct DiscoverView: View {
                 }
             }
 
+            Section(String(localized: "Structure")) {
+                let stacks = StackGrouping.stacks(in: app.model.assets)
+                if !stacks.isEmpty {
+                    NavigationLink {
+                        StacksListView(assets: app.model.assets)
+                    } label: {
+                        structureRow(String(localized: "Stacks"),
+                                     subtitle: String(localized: "Bursts captured together"),
+                                     symbol: "square.stack",
+                                     count: stacks.count)
+                    }
+                }
+                let duplicateGroups = DuplicateFinder.possibleDuplicateGroups(in: app.model.assets)
+                if !duplicateGroups.isEmpty {
+                    NavigationLink {
+                        DuplicatesListView(assets: app.model.assets)
+                    } label: {
+                        structureRow(String(localized: "Possible Duplicates"),
+                                     subtitle: String(localized: "Same second, same dimensions"),
+                                     symbol: "square.on.square",
+                                     count: duplicateGroups.count)
+                    }
+                }
+                let places = LocationClustering.clusters(in: app.model.assets)
+                if !places.isEmpty {
+                    NavigationLink {
+                        PlacesView(assets: app.model.assets)
+                    } label: {
+                        structureRow(String(localized: "Places"),
+                                     subtitle: String(localized: "Areas from existing location data"),
+                                     symbol: "mappin.and.ellipse",
+                                     count: places.count)
+                    }
+                }
+            }
+
             Section(String(localized: "Rediscover")) {
                 ForEach(DiscoverCollection.allCases) { collection in
                     let members = collection.members(of: app.model.assets, meta: app.model.metaByID)
@@ -227,6 +263,29 @@ struct DiscoverView: View {
             }
         }
         .listStyle(.insetGrouped)
+    }
+
+    private func structureRow(_ title: String, subtitle: String,
+                              symbol: String, count: Int) -> some View {
+        HStack(spacing: Space.l) {
+            Image(systemName: symbol)
+                .font(Typo.glyph(22, .medium))
+                .foregroundStyle(Palette.accent)
+                .frame(width: 56, height: 56)
+                .background(Palette.surfaceSunk, in: .rect(cornerRadius: Radius.thumb))
+                .accessibilityHidden(true)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title).font(Typo.control)
+                Text(subtitle)
+                    .font(Typo.meta)
+                    .foregroundStyle(Palette.textSecondary)
+            }
+            Spacer()
+            Text(count.formatted())
+                .font(Typo.meta)
+                .foregroundStyle(Palette.textTertiary)
+        }
+        .padding(.vertical, Space.xs)
     }
 
     private func smartRow(_ record: SmartCollectionRecord, count: Int, cover: HiddenAsset?) -> some View {

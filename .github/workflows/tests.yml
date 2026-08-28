@@ -48,8 +48,19 @@ jobs:
             -destination "id=${{ steps.sim.outputs.udid }}" \
             -only-testing:HiddenTests \
             -derivedDataPath .build \
+            -resultBundlePath TestResult.xcresult \
             CODE_SIGNING_ALLOWED=NO \
             2>&1 | tee test.log | tail -n 40
+
+      # A crashed test process names no expectation; the result bundle carries the crash
+      # log, and diagnosing it from Windows means having the bundle in hand.
+      - name: Upload result bundle on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-result-bundle
+          path: TestResult.xcresult
+          retention-days: 7
 
       # To stdout as well as the summary. A compile error in a test target reports its file
       # and line in the full log and only its message in the tail, which is the half that is

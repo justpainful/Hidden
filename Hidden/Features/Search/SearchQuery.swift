@@ -60,6 +60,9 @@ enum SearchQuery {
         // Tag names, by prefix or substring.
         if meta.tagNames.contains(where: { $0.lowercased().contains(term) }) { return true }
 
+        // Recognized text, when the on-device index has run.
+        if let text = meta.ocrText, text.lowercased().contains(term) { return true }
+
         return false
     }
 

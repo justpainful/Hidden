@@ -94,6 +94,32 @@ final class PhotoMediaProvider: MediaProviding {
         manager.stopCachingImagesForAllAssets()
     }
 
+    // MARK: Live Photos
+
+    /// The playable Live Photo for an asset the user has opened full screen.
+    func livePhoto(for assetID: String, targetSize: CGSize) async -> PHLivePhoto? {
+        guard let asset = HiddenPhotoLibrary.asset(for: assetID) else { return nil }
+        let options = PHLivePhotoRequestOptions()
+        options.deliveryMode = .highQualityFormat
+        options.isNetworkAccessAllowed = true
+
+        return await withCheckedContinuation { continuation in
+            var resumed = false
+            manager.requestLivePhoto(for: asset,
+                                     targetSize: targetSize,
+                                     contentMode: .aspectFit,
+                                     options: options) { livePhoto, info in
+                let isDegraded = (info?[PHImageResultIsDegradedKey] as? Bool) ?? false
+                guard !isDegraded, !resumed else { return }
+                resumed = true
+                if (info?[PHImageResultIsInCloudKey] as? Bool) == true, livePhoto == nil {
+                    self.recordCloudOnly(assetID)
+                }
+                continuation.resume(returning: livePhoto)
+            }
+        }
+    }
+
     // MARK: Video
 
     /// The playable item for a clip the user has opened.

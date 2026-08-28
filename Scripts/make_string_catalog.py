@@ -321,6 +321,38 @@ AR = {
     "When this app first observed it hidden": "وقت أول رصد للتطبيق لإخفائها",
     "Year, month, tag, video…": "سنة، شهر، وسم، فيديو…",
     "Open On": "الفتح على",
+    "Stacks": "المجموعات المتتابعة",
+    "Bursts captured together": "دفعات التُقطت معًا",
+    "Possible Duplicates": "تكرارات محتملة",
+    "Same second, same dimensions": "نفس الثانية ونفس الأبعاد",
+    "Structure": "البنية",
+    "No Stacks": "لا توجد مجموعات متتابعة",
+    "Stacks appear when several photos were captured within seconds of each other.":
+        "تظهر المجموعات المتتابعة عندما تُلتقط عدة صور خلال ثوانٍ من بعضها.",
+    "Stack": "مجموعة متتابعة",
+    "Compare": "مقارنة",
+    "No Possible Duplicates": "لا توجد تكرارات محتملة",
+    "Items captured in the same second with the same dimensions would appear here.":
+        "العناصر الملتقطة في نفس الثانية وبنفس الأبعاد ستظهر هنا.",
+    "Related": "ذات صلة",
+    "Places": "الأماكن",
+    "Share": "مشاركة",
+    "Areas from existing location data": "مناطق من بيانات الموقع الموجودة",
+    "No Location Data": "لا توجد بيانات موقع",
+    "Media with location information would be grouped into areas here.":
+        "الوسائط التي تحمل معلومات موقع ستُجمع هنا في مناطق.",
+    "See All Related": "عرض كل ذات الصلة",
+    "Captured around the same time, the same day, the same session, or sharing a tag.":
+        "التُقطت في وقت متقارب، أو في نفس اليوم، أو في نفس الجلسة، أو تتشارك وسمًا.",
+    "Cover While Screen Recording": "تغطية أثناء تسجيل الشاشة",
+    "Find Text in Photos": "البحث عن نص داخل الصور",
+    "Indexed": "المفهرَس",
+    "Pause Indexing": "إيقاف الفهرسة مؤقتًا",
+    "Resume Indexing": "استئناف الفهرسة",
+    "Clear Text Index": "مسح فهرس النصوص",
+    "Paused — battery is low.": "توقفت مؤقتًا — البطارية منخفضة.",
+    "Recognizes text inside photos on this device so search can find it. Nothing is uploaded; iCloud originals are never downloaded for indexing.":
+        "يتعرف على النص داخل الصور على هذا الجهاز ليتمكن البحث من إيجاده. لا يُرفع أي شيء، ولا تُنزَّل النسخ الأصلية من iCloud للفهرسة أبدًا.",
     "video": "فيديو",
     "photo": "صورة",
 }

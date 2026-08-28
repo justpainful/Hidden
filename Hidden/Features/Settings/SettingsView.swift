@@ -18,6 +18,7 @@ struct SettingsView: View {
                 privacySection
                 playbackSection
                 librarySection
+                searchSection
                 backupSection
                 dataSection
                 aboutSection
@@ -59,6 +60,9 @@ struct SettingsView: View {
             Toggle(String(localized: "Blur Thumbnails"), isOn: Binding(
                 get: { app.settings.blurThumbnails },
                 set: { app.settings.blurThumbnails = $0 }))
+            Toggle(String(localized: "Cover While Screen Recording"), isOn: Binding(
+                get: { app.settings.obscureWhileCaptured },
+                set: { app.settings.obscureWhileCaptured = $0 }))
             Toggle(String(localized: "Read Only Mode"), isOn: Binding(
                 get: { app.settings.readOnlyMode },
                 set: { app.settings.readOnlyMode = $0 }))
@@ -115,6 +119,51 @@ struct SettingsView: View {
                 }
             }
         }
+    }
+
+    private var searchSection: some View {
+        Section {
+            Toggle(String(localized: "Find Text in Photos"), isOn: Binding(
+                get: { app.settings.ocrEnabled },
+                set: { enabled in
+                    app.settings.ocrEnabled = enabled
+                    if enabled {
+                        app.textIndex.start()
+                    } else {
+                        app.textIndex.pause()
+                    }
+                }))
+
+            if app.settings.ocrEnabled {
+                LabeledContent(String(localized: "Indexed"),
+                               value: "\(app.textIndex.indexedCount.formatted()) / \((app.textIndex.indexedCount + app.textIndex.pendingCount).formatted())")
+
+                if app.textIndex.isRunning {
+                    Button(String(localized: "Pause Indexing")) {
+                        app.textIndex.pause()
+                    }
+                } else if app.textIndex.pendingCount > 0 {
+                    Button(String(localized: "Resume Indexing")) {
+                        app.textIndex.start()
+                    }
+                }
+
+                if let error = app.textIndex.lastError {
+                    Text(error)
+                        .font(Typo.meta)
+                        .foregroundStyle(Palette.textSecondary)
+                }
+
+                Button(String(localized: "Clear Text Index"), role: .destructive) {
+                    app.textIndex.clearIndex()
+                }
+            }
+        } header: {
+            Text("Search")
+        } footer: {
+            Text("Recognizes text inside photos on this device so search can find it. Nothing is uploaded; iCloud originals are never downloaded for indexing.")
+        }
+        .onAppear { app.textIndex.refreshCounts() }
     }
 
     private var backupSection: some View {

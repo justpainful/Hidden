@@ -40,6 +40,10 @@ final class AppSettings {
     var noDeleteMode: Bool { didSet { store(noDeleteMode, "noDeleteMode") } }
     /// Record the local change journal.
     var keepsChangeLog: Bool { didSet { store(keepsChangeLog, "keepsChangeLog") } }
+    /// Cover media while the screen is being recorded or mirrored.
+    var obscureWhileCaptured: Bool { didSet { store(obscureWhileCaptured, "obscureWhileCaptured") } }
+    /// On-device text recognition over thumbnails, for search. Off until asked for.
+    var ocrEnabled: Bool { didSet { store(ocrEnabled, "ocrEnabled") } }
 
     // Playback
     var photoDuration: TimeInterval { didSet { store(photoDuration, "photoDuration") } }
@@ -72,6 +76,8 @@ final class AppSettings {
         readOnlyMode = defaults.object(forKey: "readOnlyMode") as? Bool ?? false
         noDeleteMode = defaults.object(forKey: "noDeleteMode") as? Bool ?? false
         keepsChangeLog = defaults.object(forKey: "keepsChangeLog") as? Bool ?? true
+        obscureWhileCaptured = defaults.object(forKey: "obscureWhileCaptured") as? Bool ?? false
+        ocrEnabled = defaults.object(forKey: "ocrEnabled") as? Bool ?? false
         photoDuration = defaults.object(forKey: "photoDuration") as? TimeInterval ?? 3
         muteByDefault = defaults.object(forKey: "muteByDefault") as? Bool ?? true
         autoplayNext = defaults.object(forKey: "autoplayNext") as? Bool ?? true
