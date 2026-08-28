@@ -3,6 +3,8 @@ import SwiftUI
 /// A dynamic collection Discover can compute from the current assets and app metadata.
 /// Pure functions, so the whole surface is testable against the mock.
 enum DiscoverCollection: String, CaseIterable, Identifiable {
+    case continueWatching
+    case recentlyViewed
     case unseen
     case forgotten
     case buried
@@ -10,6 +12,7 @@ enum DiscoverCollection: String, CaseIterable, Identifiable {
     case mostViewed
     case oldFavorites
     case forgottenVideos
+    case recentlyFinished
     case deepArchive
     case sameDayOtherYears
     case oneFromEveryMonth
@@ -20,6 +23,9 @@ enum DiscoverCollection: String, CaseIterable, Identifiable {
 
     var title: String {
         switch self {
+        case .continueWatching:  return String(localized: "Continue Watching")
+        case .recentlyViewed:    return String(localized: "Recently Viewed")
+        case .recentlyFinished:  return String(localized: "Recently Finished")
         case .unseen:            return String(localized: "Unseen")
         case .forgotten:         return String(localized: "Forgotten")
         case .buried:            return String(localized: "Buried")
@@ -37,6 +43,9 @@ enum DiscoverCollection: String, CaseIterable, Identifiable {
 
     var subtitle: String {
         switch self {
+        case .continueWatching:  return String(localized: "Videos you started but didn't finish")
+        case .recentlyViewed:    return String(localized: "What you opened lately")
+        case .recentlyFinished:  return String(localized: "Videos played to the end recently")
         case .unseen:            return String(localized: "Never opened in this app")
         case .forgotten:         return String(localized: "Not viewed in over 90 days")
         case .buried:            return String(localized: "Old, never viewed, not a favorite")
@@ -54,6 +63,9 @@ enum DiscoverCollection: String, CaseIterable, Identifiable {
 
     var symbol: String {
         switch self {
+        case .continueWatching:  return "play.circle"
+        case .recentlyViewed:    return "clock"
+        case .recentlyFinished:  return "checkmark.circle"
         case .unseen:            return "eye.slash"
         case .forgotten:         return "moon.zzz"
         case .buried:            return "archivebox"
@@ -76,6 +88,17 @@ enum DiscoverCollection: String, CaseIterable, Identifiable {
         func metaOf(_ asset: HiddenAsset) -> AssetMeta { meta[asset.localIdentifier] ?? .empty }
 
         switch self {
+        case .continueWatching:
+            return assets.filter {
+                $0.isVideo && metaOf($0).playbackPosition > 2 && !metaOf($0).playbackCompleted
+            }
+            .sorted { (metaOf($0).lastViewedAt ?? .distantPast) > (metaOf($1).lastViewedAt ?? .distantPast) }
+        case .recentlyViewed:
+            return assets.filter { metaOf($0).lastViewedAt != nil }
+                .sorted { (metaOf($0).lastViewedAt ?? .distantPast) > (metaOf($1).lastViewedAt ?? .distantPast) }
+        case .recentlyFinished:
+            return assets.filter { $0.isVideo && metaOf($0).playbackCompleted }
+                .sorted { (metaOf($0).lastViewedAt ?? .distantPast) > (metaOf($1).lastViewedAt ?? .distantPast) }
         case .unseen:
             return assets.filter { metaOf($0).viewCount == 0 }
         case .forgotten:

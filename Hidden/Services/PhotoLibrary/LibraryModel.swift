@@ -111,6 +111,11 @@ final class LibraryModel {
 
     // MARK: User actions
 
+    /// Re-read one asset's metadata after a store mutation made outside this model.
+    func refreshMeta(for assetID: String) {
+        metaByID[assetID] = store.record(for: assetID)?.meta ?? .empty
+    }
+
     func recordView(of assetID: String) {
         store.recordView(of: assetID)
         metaByID[assetID] = store.record(for: assetID)?.meta ?? .empty

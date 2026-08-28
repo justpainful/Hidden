@@ -14,13 +14,17 @@ struct LibraryView: View {
     @State private var selection: Set<String> = []
     @State private var randomSeed: UInt64 = 1
     @State private var didLoadDefaults = false
+    @State private var searchText = ""
 
     private var results: [HiddenAsset] {
-        LibraryQuery.run(app.model.assets,
-                         filter: filter,
-                         sort: sort,
-                         meta: app.model.metaByID,
-                         randomSeed: randomSeed)
+        let searched = searchText.isEmpty
+            ? app.model.assets
+            : SearchQuery.run(searchText, in: app.model.assets, meta: app.model.metaByID)
+        return LibraryQuery.run(searched,
+                                filter: filter,
+                                sort: sort,
+                                meta: app.model.metaByID,
+                                randomSeed: randomSeed)
     }
 
     var body: some View {
@@ -33,6 +37,8 @@ struct LibraryView: View {
                 }
             }
             .navigationTitle(Text("Library"))
+            .searchable(text: $searchText,
+                        prompt: Text("Year, month, tag, video…"))
             .toolbar { toolbarContent }
             .sheet(isPresented: $showsFilters) {
                 FilterSheet(filter: $filter)

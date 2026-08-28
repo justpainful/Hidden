@@ -176,6 +176,30 @@ final class MetadataStore {
         save()
     }
 
+    // MARK: Notes
+
+    func note(for assetID: String) -> AssetNote? {
+        var descriptor = FetchDescriptor<AssetNote>(
+            predicate: #Predicate { $0.assetID == assetID })
+        descriptor.fetchLimit = 1
+        return try? context.fetch(descriptor).first
+    }
+
+    func setNote(_ text: String, for assetID: String) {
+        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        if let existing = note(for: assetID) {
+            if trimmed.isEmpty {
+                context.delete(existing)
+            } else {
+                existing.text = trimmed
+                existing.updatedAt = .now
+            }
+        } else if !trimmed.isEmpty {
+            context.insert(AssetNote(assetID: assetID, text: trimmed))
+        }
+        save()
+    }
+
     func registerTag(_ name: String) {
         var descriptor = FetchDescriptor<TagRecord>(predicate: #Predicate { $0.name == name })
         descriptor.fetchLimit = 1

@@ -11,6 +11,12 @@ struct ViewerView: View {
     @Environment(\.app) private var app
     @State private var showsChrome = true
     @State private var showsInfo = false
+    @State private var showsTags = false
+    @State private var showsNote = false
+    @State private var showsRating = false
+    @State private var confirmUnhide = false
+    @State private var confirmDelete = false
+    @State private var actionError: String?
 
     private var current: HiddenAsset? {
         assets.indices.contains(index) ? assets[index] : nil
@@ -43,6 +49,56 @@ struct ViewerView: View {
                 AssetInfoView(asset: current, meta: app.model.meta(for: current.localIdentifier))
                     .presentationDetents([.medium, .large])
             }
+        }
+        .sheet(isPresented: $showsTags) {
+            if let current {
+                TagEditorView(assetID: current.localIdentifier)
+                    .presentationDetents([.medium, .large])
+            }
+        }
+        .sheet(isPresented: $showsNote) {
+            if let current {
+                NoteEditorView(assetID: current.localIdentifier)
+                    .presentationDetents([.medium, .large])
+            }
+        }
+        .sheet(isPresented: $showsRating) {
+            if let current {
+                VStack(spacing: Space.l) {
+                    Text("Rating")
+                        .font(Typo.sectionTitle)
+                    RatingPicker(assetID: current.localIdentifier)
+                }
+                .padding(Space.gutter)
+                .presentationDetents([.height(160)])
+            }
+        }
+        .confirmationDialog(String(localized: "Make this item visible again in your Photos library?"),
+                            isPresented: $confirmUnhide, titleVisibility: .visible) {
+            Button(String(localized: "Unhide")) {
+                guard let current else { return }
+                Task {
+                    do { try await app.model.unhide(current.localIdentifier) }
+                    catch { actionError = error.localizedDescription }
+                }
+            }
+        }
+        .confirmationDialog(String(localized: "Delete this item from your Photos library? This affects Apple Photos and iCloud Photos, and moves it to Recently Deleted."),
+                            isPresented: $confirmDelete, titleVisibility: .visible) {
+            Button(String(localized: "Delete"), role: .destructive) {
+                guard let current else { return }
+                Task {
+                    do { try await app.model.delete([current.localIdentifier]) }
+                    catch { actionError = error.localizedDescription }
+                }
+            }
+        }
+        .alert(String(localized: "That didn't work"),
+               isPresented: Binding(get: { actionError != nil },
+                                    set: { if !$0 { actionError = nil } })) {
+            Button(String(localized: "OK"), role: .cancel) {}
+        } message: {
+            Text(actionError ?? "")
         }
     }
 
@@ -108,11 +164,58 @@ struct ViewerView: View {
                         ) {
                             app.model.setReviewState(current.localIdentifier, .reviewLater)
                         }
+
+                        moreMenu(for: current)
                     }
                 }
                 .padding(.bottom, Space.gutter)
             }
         }
+    }
+
+    private func moreMenu(for current: HiddenAsset) -> some View {
+        Menu {
+            Button {
+                showsRating = true
+            } label: {
+                Label(String(localized: "Rate"), systemImage: "star.leadinghalf.filled")
+            }
+            Button {
+                showsTags = true
+            } label: {
+                Label(String(localized: "Tags"), systemImage: "tag")
+            }
+            Button {
+                showsNote = true
+            } label: {
+                Label(String(localized: "Note"), systemImage: "note.text")
+            }
+
+            if !app.settings.readOnlyMode {
+                Divider()
+                Button {
+                    confirmUnhide = true
+                } label: {
+                    Label(String(localized: "Unhide"), systemImage: "eye")
+                }
+                if !app.settings.noDeleteMode {
+                    Button(role: .destructive) {
+                        confirmDelete = true
+                    } label: {
+                        Label(String(localized: "Delete"), systemImage: "trash")
+                    }
+                }
+            }
+        } label: {
+            Image(systemName: "ellipsis")
+                .font(Typo.glyph(17))
+                .foregroundStyle(.white)
+                .shadow(color: .black.opacity(0.4), radius: 2, y: 1)
+                .frame(width: 46, height: 46)
+                .contentShape(.circle)
+        }
+        .glassControl(.circle, tone: .clear)
+        .accessibilityLabel(String(localized: "More"))
     }
 
     private var positionText: String {

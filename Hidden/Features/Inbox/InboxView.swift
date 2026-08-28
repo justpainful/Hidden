@@ -54,6 +54,9 @@ struct InboxView: View {
                             section(title: String(localized: "Review Later"),
                                     assets: reviewLater)
                         }
+                        if !sessions.isEmpty {
+                            sessionsSection
+                        }
                         if digest.isEmpty && unreviewed.isEmpty && reviewLater.isEmpty {
                             caughtUp
                         }
@@ -91,6 +94,10 @@ struct InboxView: View {
 
     private var newlyFavoritedAssets: [HiddenAsset] {
         digest.newlyFavorited.compactMap { app.model.asset(for: $0) }
+    }
+
+    private var sessions: [HiddenSession] {
+        SessionGrouping.sessions(assets: app.model.assets, meta: app.model.metaByID)
     }
 
     /// A bridge so `fullScreenCover(item:)` gets identity for the review queue.
@@ -171,6 +178,68 @@ struct InboxView: View {
                 .padding(.horizontal, Space.gutter)
             }
         }
+    }
+
+    private var sessionsSection: some View {
+        VStack(alignment: .leading, spacing: Space.m) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Sessions")
+                    .font(Typo.sectionTitle)
+                Text("Inferred from when this app first observed each item — not Apple's own history.")
+                    .font(Typo.meta)
+                    .foregroundStyle(Palette.textTertiary)
+            }
+            .padding(.horizontal, Space.gutter)
+
+            VStack(spacing: Space.s) {
+                ForEach(sessions.prefix(5)) { session in
+                    NavigationLink {
+                        CollectionResultsView(
+                            title: session.observedAt.formatted(date: .abbreviated, time: .shortened),
+                            assets: session.assetIDs.compactMap { app.model.asset(for: $0) })
+                    } label: {
+                        sessionRow(session)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding(.horizontal, Space.gutter)
+        }
+    }
+
+    private func sessionRow(_ session: HiddenSession) -> some View {
+        HStack(spacing: Space.l) {
+            if let coverID = session.assetIDs.first {
+                AssetImageView(assetID: coverID, targetSide: 120)
+                    .frame(width: 56, height: 56)
+                    .clipShape(.rect(cornerRadius: Radius.thumb))
+                    .blurredIfNeeded()
+                    .accessibilityHidden(true)
+            }
+            VStack(alignment: .leading, spacing: 2) {
+                Text(session.observedAt.formatted(date: .abbreviated, time: .shortened))
+                    .font(Typo.control)
+                Text(sessionSummary(session))
+                    .font(Typo.meta)
+                    .foregroundStyle(Palette.textSecondary)
+            }
+            Spacer()
+            Image(systemName: "chevron.forward")
+                .font(Typo.glyph(13))
+                .foregroundStyle(Palette.textTertiary)
+                .accessibilityHidden(true)
+        }
+        .padding(Space.m)
+        .background(Palette.surface, in: .rect(cornerRadius: Radius.tile))
+    }
+
+    private func sessionSummary(_ session: HiddenSession) -> String {
+        var parts = [String(localized: "\(session.count.formatted()) items")]
+        if session.videoCount > 0 {
+            parts.append(String(localized: "\(session.videoCount.formatted()) videos"))
+            parts.append(session.videoSeconds.shortDuration)
+        }
+        return parts.joined(separator: " · ")
     }
 
     private var reviewCard: some View {
