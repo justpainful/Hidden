@@ -36,7 +36,10 @@ enum LibrarySort: String, CaseIterable, Identifiable, Sendable {
 
 /// One composable predicate over an asset and its metadata. Filters are ANDed together;
 /// several values within one criterion (e.g. two media kinds) are ORed.
-struct LibraryFilter: Sendable, Equatable {
+///
+/// Codable because a smart collection is exactly this struct serialized: the rules survive
+/// as JSON, so adding a criterion never needs a database migration.
+struct LibraryFilter: Sendable, Equatable, Codable {
     var kinds: Set<MediaKind> = []
     var onlyFavorites = false
     var onlyAppFavorites = false

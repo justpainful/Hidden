@@ -136,6 +136,12 @@ final class SmartCollectionRecord {
     }
 
     var sort: LibrarySort { LibrarySort(rawValue: sortRaw) ?? .recentlyObserved }
+
+    /// Rules that fail to decode fall back to "match everything" rather than crashing a
+    /// collection created by a newer version of the app.
+    var filter: LibraryFilter {
+        (try? JSONDecoder().decode(LibraryFilter.self, from: rulesData)) ?? .none
+    }
 }
 
 /// A queue is references and order — never copies of media.

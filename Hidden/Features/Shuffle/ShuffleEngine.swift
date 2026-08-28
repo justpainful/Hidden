@@ -119,8 +119,11 @@ enum ShuffleEngine {
     // MARK: Mix rules
 
     /// Rearranges so no two videos are adjacent, keeping relative order within each kind.
-    /// When there are too many videos for the photos available, the leftovers run at the end
-    /// back to back — the rule bends rather than dropping media silently.
+    ///
+    /// Greedy by remaining pressure: after a photo, a video plays whenever videos still
+    /// outnumber the photos left — which is exactly the condition that guarantees no
+    /// adjacency whenever `videos ≤ photos + 1`. When videos outnumber that bound the rule
+    /// bends at the end rather than dropping media silently.
     static func spacingVideos(_ queue: [HiddenAsset]) -> [HiddenAsset] {
         let videos = queue.filter(\.isVideo)
         let photos = queue.filter { !$0.isVideo }
@@ -128,30 +131,36 @@ enum ShuffleEngine {
 
         var result: [HiddenAsset] = []
         result.reserveCapacity(queue.count)
-        var videoIterator = videos.makeIterator()
-        var photoIterator = photos.makeIterator()
+        var vi = 0, pi = 0
         var lastWasVideo = false
+        // Bresenham-style accumulator: videos land evenly across the whole queue instead of
+        // clumping wherever the counts happen to balance.
+        let ratio = Double(videos.count) / Double(queue.count)
+        var accumulator = 0.0
 
-        for original in queue {
-            if original.isVideo && lastWasVideo, let photo = photoIterator.next() {
-                result.append(photo)
-                lastWasVideo = false
+        while vi < videos.count || pi < photos.count {
+            if pi == photos.count {
+                result.append(videos[vi]); vi += 1        // forced: photos ran out
+                continue
             }
-            // Draw from the same kind the original slot held, preserving the shuffle's
-            // large-scale shape.
-            if original.isVideo {
-                if let video = videoIterator.next() {
-                    result.append(video)
-                    lastWasVideo = true
-                }
-            } else if let photo = photoIterator.next() {
-                result.append(photo)
-                lastWasVideo = false
+            if vi == videos.count {
+                result.append(photos[pi]); pi += 1
+                continue
+            }
+
+            accumulator += ratio
+            // The pressure clause: once the videos left match or exceed the photos left,
+            // every non-video slot wasted would force an adjacency later — so the even
+            // pacing yields to necessity. This is what makes `videos ≤ photos + 1` a hard
+            // no-adjacency guarantee rather than a tendency.
+            let mustPlaceVideo = (videos.count - vi) >= (photos.count - pi)
+            if !lastWasVideo && (mustPlaceVideo || accumulator >= 1) {
+                if accumulator >= 1 { accumulator -= 1 }
+                result.append(videos[vi]); vi += 1; lastWasVideo = true
+            } else {
+                result.append(photos[pi]); pi += 1; lastWasVideo = false
             }
         }
-        // Whatever remains of either kind.
-        while let video = videoIterator.next() { result.append(video) }
-        while let photo = photoIterator.next() { result.append(photo) }
         return result
     }
 

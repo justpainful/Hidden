@@ -160,6 +160,7 @@ enum DiscoverCollection: String, CaseIterable, Identifiable {
 /// Rediscovery: collections that keep a large hidden library alive instead of static.
 struct DiscoverView: View {
     @Environment(\.app) private var app
+    @State private var showsNewCollection = false
 
     var body: some View {
         NavigationStack {
@@ -171,23 +172,91 @@ struct DiscoverView: View {
                 }
             }
             .navigationTitle(Text("Discover"))
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showsNewCollection = true
+                    } label: {
+                        Label(String(localized: "New Smart Collection"), systemImage: "plus")
+                    }
+                }
+            }
+            .sheet(isPresented: $showsNewCollection) {
+                SmartCollectionEditor()
+            }
         }
     }
 
     private var list: some View {
         List {
-            ForEach(DiscoverCollection.allCases) { collection in
-                let members = collection.members(of: app.model.assets, meta: app.model.metaByID)
-                if !members.isEmpty {
-                    NavigationLink {
-                        CollectionResultsView(title: collection.title, assets: members)
-                    } label: {
-                        row(collection, count: members.count, cover: members.first)
+            let smart = app.store.allSmartCollections()
+            if !smart.isEmpty {
+                Section(String(localized: "My Collections")) {
+                    ForEach(smart, id: \.id) { record in
+                        let members = LibraryQuery.run(app.model.assets,
+                                                       filter: record.filter,
+                                                       sort: record.sort,
+                                                       meta: app.model.metaByID)
+                        NavigationLink {
+                            CollectionResultsView(title: record.name, assets: members)
+                        } label: {
+                            smartRow(record, count: members.count, cover: members.first)
+                        }
+                        .swipeActions {
+                            Button(role: .destructive) {
+                                app.store.deleteSmartCollection(record)
+                            } label: {
+                                Label(String(localized: "Delete"), systemImage: "trash")
+                            }
+                        }
+                    }
+                }
+            }
+
+            Section(String(localized: "Rediscover")) {
+                ForEach(DiscoverCollection.allCases) { collection in
+                    let members = collection.members(of: app.model.assets, meta: app.model.metaByID)
+                    if !members.isEmpty {
+                        NavigationLink {
+                            CollectionResultsView(title: collection.title, assets: members)
+                        } label: {
+                            row(collection, count: members.count, cover: members.first)
+                        }
                     }
                 }
             }
         }
         .listStyle(.insetGrouped)
+    }
+
+    private func smartRow(_ record: SmartCollectionRecord, count: Int, cover: HiddenAsset?) -> some View {
+        HStack(spacing: Space.l) {
+            if let cover {
+                AssetImageView(assetID: cover.localIdentifier, targetSide: 120)
+                    .frame(width: 56, height: 56)
+                    .clipShape(.rect(cornerRadius: Radius.thumb))
+                    .blurredIfNeeded()
+                    .accessibilityHidden(true)
+            } else {
+                Image(systemName: "square.stack.3d.up")
+                    .font(Typo.glyph(22, .medium))
+                    .foregroundStyle(Palette.accent)
+                    .frame(width: 56, height: 56)
+                    .background(Palette.surfaceSunk, in: .rect(cornerRadius: Radius.thumb))
+                    .accessibilityHidden(true)
+            }
+            VStack(alignment: .leading, spacing: 2) {
+                Text(record.name).font(Typo.control)
+                Text(String(localized: "Smart collection"))
+                    .font(Typo.meta)
+                    .foregroundStyle(Palette.textSecondary)
+            }
+            Spacer()
+            Text(count.formatted())
+                .font(Typo.meta)
+                .foregroundStyle(Palette.textTertiary)
+        }
+        .padding(.vertical, Space.xs)
     }
 
     private func row(_ collection: DiscoverCollection, count: Int, cover: HiddenAsset?) -> some View {

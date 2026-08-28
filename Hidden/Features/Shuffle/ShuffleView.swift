@@ -154,6 +154,46 @@ struct ShuffleView: View {
                     }
                 }
             }
+
+            savedQueuesSection
+        }
+    }
+
+    @ViewBuilder
+    private var savedQueuesSection: some View {
+        let queues = app.store.allQueues()
+        if !queues.isEmpty {
+            Section(String(localized: "Saved Queues")) {
+                ForEach(queues, id: \.id) { queue in
+                    let members = queue.itemIDs.compactMap { app.model.asset(for: $0) }
+                    Button {
+                        guard !members.isEmpty else { return }
+                        session = ShuffleSessionTarget(queue: members, startIndex: 0)
+                    } label: {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(queue.name)
+                                    .font(Typo.control)
+                                    .foregroundStyle(Palette.textPrimary)
+                                Text(String(localized: "\(members.count.formatted()) items"))
+                                    .font(Typo.meta)
+                                    .foregroundStyle(Palette.textSecondary)
+                            }
+                            Spacer()
+                            Image(systemName: "play.fill")
+                                .foregroundStyle(Palette.accent)
+                                .accessibilityHidden(true)
+                        }
+                    }
+                    .swipeActions {
+                        Button(role: .destructive) {
+                            app.store.deleteQueue(queue)
+                        } label: {
+                            Label(String(localized: "Delete"), systemImage: "trash")
+                        }
+                    }
+                }
+            }
         }
     }
 

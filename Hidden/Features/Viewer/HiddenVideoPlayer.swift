@@ -1,5 +1,6 @@
 import AVFoundation
 import AVKit
+import SwiftData
 import SwiftUI
 
 /// The app's own video transport: scrubber, times, speed, mute, restart — and playback
@@ -22,6 +23,17 @@ struct HiddenVideoPlayer: View {
     @State private var isLoadFailed = false
     @State private var timeObserver: Any?
     @State private var endObserver: NSObjectProtocol?
+    /// Bumped when a bookmark is added so the menu re-reads the list.
+    @State private var bookmarksGeneration = 0
+
+    private var currentBookmarks: [VideoBookmark] {
+        _ = bookmarksGeneration
+        let id = asset.localIdentifier
+        let descriptor = FetchDescriptor<VideoBookmark>(
+            predicate: #Predicate { $0.assetID == id },
+            sortBy: [SortDescriptor(\.timestamp)])
+        return (try? app.store.context.fetch(descriptor)) ?? []
+    }
 
     var body: some View {
         ZStack {
@@ -147,6 +159,33 @@ struct HiddenVideoPlayer: View {
                         play()
                     } label: {
                         Label(String(localized: "Restart"), systemImage: "arrow.counterclockwise")
+                    }
+
+                    Divider()
+
+                    Button {
+                        app.store.context.insert(
+                            VideoBookmark(assetID: asset.localIdentifier, timestamp: currentTime))
+                        app.store.save()
+                        bookmarksGeneration += 1
+                    } label: {
+                        Label(String(localized: "Bookmark This Moment"), systemImage: "bookmark.fill")
+                    }
+
+                    let bookmarks = currentBookmarks
+                    if !bookmarks.isEmpty {
+                        Menu {
+                            ForEach(bookmarks, id: \.timestamp) { bookmark in
+                                Button {
+                                    seek(to: bookmark.timestamp)
+                                    play()
+                                } label: {
+                                    Text(bookmark.timestamp.shortDuration)
+                                }
+                            }
+                        } label: {
+                            Label(String(localized: "Bookmarks"), systemImage: "bookmark")
+                        }
                     }
                 } label: {
                     Image(systemName: "ellipsis")

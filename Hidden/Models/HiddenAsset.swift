@@ -40,7 +40,7 @@ enum MediaKind: String, Sendable, Hashable, Codable {
     case video
 }
 
-enum AssetOrientation: String, Sendable, Hashable, CaseIterable {
+enum AssetOrientation: String, Sendable, Hashable, CaseIterable, Codable {
     case portrait, landscape, square
 }
 

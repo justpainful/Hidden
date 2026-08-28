@@ -118,6 +118,28 @@ struct ShuffleEngineTests {
         }
     }
 
+    @Test("Spacing holds even at the tight bound of videos = photos + 1")
+    func videoSpacingTightBound() {
+        let assets = (0..<11).map { index in
+            Fixture.asset("t\(index)", video: index < 6, duration: 30)   // 6 videos, 5 photos
+        }
+        let spaced = ShuffleEngine.spacingVideos(assets)
+        #expect(spaced.count == assets.count)
+        for pair in zip(spaced, spaced.dropFirst()) {
+            #expect(!(pair.0.isVideo && pair.1.isVideo))
+        }
+    }
+
+    @Test("With more videos than the bound, nothing is dropped and the rule bends at the end")
+    func videoSpacingOverflow() {
+        let assets = (0..<10).map { index in
+            Fixture.asset("o\(index)", video: index < 8, duration: 30)   // 8 videos, 2 photos
+        }
+        let spaced = ShuffleEngine.spacingVideos(assets)
+        #expect(spaced.count == assets.count)
+        #expect(Set(spaced.map(\.localIdentifier)).count == assets.count)
+    }
+
     @Test("An empty pool produces an empty queue, not a crash")
     func emptyPool() {
         let queue = ShuffleEngine.buildQueue(

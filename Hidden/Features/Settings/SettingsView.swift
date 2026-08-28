@@ -1,4 +1,5 @@
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct SettingsView: View {
     @Environment(\.app) private var app
@@ -6,6 +7,10 @@ struct SettingsView: View {
 
     @State private var confirmClearHistory = false
     @State private var confirmReset = false
+    @State private var exportURL: URL?
+    @State private var exportIncludesHistory = false
+    @State private var showsImporter = false
+    @State private var transferMessage: String?
 
     var body: some View {
         NavigationStack {
@@ -13,6 +18,7 @@ struct SettingsView: View {
                 privacySection
                 playbackSection
                 librarySection
+                backupSection
                 dataSection
                 aboutSection
             }
@@ -101,6 +107,78 @@ struct SettingsView: View {
                     Text(choice.title).tag(choice)
                 }
             }
+        }
+    }
+
+    private var backupSection: some View {
+        Section {
+            Toggle(String(localized: "Include Viewing History"), isOn: $exportIncludesHistory)
+                .onChange(of: exportIncludesHistory) { _, _ in exportURL = nil }
+
+            if let exportURL {
+                ShareLink(item: exportURL) {
+                    Label(String(localized: "Share Backup File"), systemImage: "square.and.arrow.up")
+                }
+            } else {
+                Button {
+                    prepareExport()
+                } label: {
+                    Label(String(localized: "Prepare Metadata Backup"), systemImage: "archivebox")
+                }
+            }
+
+            Button {
+                showsImporter = true
+            } label: {
+                Label(String(localized: "Import Backup"), systemImage: "square.and.arrow.down")
+            }
+        } header: {
+            Text("Backup")
+        } footer: {
+            Text("A backup carries tags, ratings, notes, collections and observation dates — never photos or videos. Identifiers that no longer resolve import as dormant records.")
+        }
+        .fileImporter(isPresented: $showsImporter,
+                      allowedContentTypes: [.json]) { result in
+            switch result {
+            case .success(let url):
+                importBackup(from: url)
+            case .failure(let error):
+                transferMessage = error.localizedDescription
+            }
+        }
+        .alert(String(localized: "Backup"),
+               isPresented: Binding(get: { transferMessage != nil },
+                                    set: { if !$0 { transferMessage = nil } })) {
+            Button(String(localized: "OK"), role: .cancel) {}
+        } message: {
+            Text(transferMessage ?? "")
+        }
+    }
+
+    private func prepareExport() {
+        do {
+            let data = try MetadataTransfer.export(store: app.store,
+                                                   includeHistory: exportIncludesHistory)
+            let stamp = Date.now.formatted(.iso8601.year().month().day())
+            let url = FileManager.default.temporaryDirectory
+                .appendingPathComponent("Hidden-Metadata-\(stamp).json")
+            try data.write(to: url, options: .atomic)
+            exportURL = url
+        } catch {
+            transferMessage = error.localizedDescription
+        }
+    }
+
+    private func importBackup(from url: URL) {
+        do {
+            let secured = url.startAccessingSecurityScopedResource()
+            defer { if secured { url.stopAccessingSecurityScopedResource() } }
+            let data = try Data(contentsOf: url)
+            let count = try MetadataTransfer.importData(data, into: app.store)
+            transferMessage = String(localized: "Restored metadata for \(count.formatted()) items.")
+            Task { await app.model.refresh() }
+        } catch {
+            transferMessage = error.localizedDescription
         }
     }
 

@@ -15,6 +15,8 @@ struct LibraryView: View {
     @State private var randomSeed: UInt64 = 1
     @State private var didLoadDefaults = false
     @State private var searchText = ""
+    @State private var askQueueName = false
+    @State private var queueName = ""
 
     private var results: [HiddenAsset] {
         let searched = searchText.isEmpty
@@ -46,6 +48,20 @@ struct LibraryView: View {
             }
             .fullScreenCover(item: $viewerTarget) { target in
                 ViewerView(assets: results, index: target.index) { viewerTarget = nil }
+            }
+            .alert(String(localized: "Save as Queue"), isPresented: $askQueueName) {
+                TextField(String(localized: "Queue name"), text: $queueName)
+                Button(String(localized: "Save")) {
+                    // Keep the on-screen order: a queue is references and order, not copies.
+                    let ordered = results.map(\.localIdentifier).filter { selection.contains($0) }
+                    app.store.addQueue(name: queueName.isEmpty
+                                       ? String(localized: "Queue") : queueName,
+                                       itemIDs: ordered)
+                    finishSelection()
+                }
+                Button(String(localized: "Cancel"), role: .cancel) {}
+            } message: {
+                Text("Stores references to the selected items — never copies.")
             }
         }
         .onAppear {
@@ -124,6 +140,12 @@ struct LibraryView: View {
                     } label: {
                         Label(String(localized: "Pin"), systemImage: "pin")
                     }
+                    Button {
+                        queueName = ""
+                        askQueueName = true
+                    } label: {
+                        Label(String(localized: "Save as Queue"), systemImage: "list.bullet.rectangle")
+                    }
                 } label: {
                     Text("\(selection.count.formatted()) selected")
                 }
@@ -136,6 +158,13 @@ struct LibraryView: View {
                     Label(String(localized: "Filters"), systemImage: filter.isActive
                           ? "line.3.horizontal.decrease.circle.fill"
                           : "line.3.horizontal.decrease.circle")
+                }
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                NavigationLink {
+                    TimelineView()
+                } label: {
+                    Label(String(localized: "Timeline"), systemImage: "calendar")
                 }
             }
             ToolbarItem(placement: .topBarTrailing) {

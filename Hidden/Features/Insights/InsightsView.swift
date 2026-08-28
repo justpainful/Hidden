@@ -26,6 +26,11 @@ struct InsightsView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: Space.xl) {
                 statGrid
+                recap(title: Date.now.formatted(.dateTime.month(.wide).year()),
+                      component: .month)
+                recap(title: Date.now.formatted(.dateTime.year()) + " " + String(localized: "Recap"),
+                      component: .year)
+                HeatmapView(assets: assets, meta: meta)
                 captureTrend
                 mediaSplit
             }
@@ -84,6 +89,51 @@ struct InsightsView: View {
         .background(Palette.surface, in: .rect(cornerRadius: Radius.tile))
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("\(title): \(value)")
+    }
+
+    // MARK: Recaps
+
+    /// A local recap for the current month or year: counts over the accessible set, plus
+    /// how many the app first observed within the period. All computed here, nothing stored,
+    /// nothing uploaded.
+    private func recap(title: String, component: Calendar.Component) -> some View {
+        let calendar = Calendar.current
+        let now = Date.now
+        let inPeriod = assets.filter {
+            calendar.isDate($0.creationDate, equalTo: now, toGranularity: component)
+        }
+        let observedInPeriod = assets.filter {
+            guard let observed = meta[$0.localIdentifier]?.firstObservedHiddenAt else { return false }
+            return calendar.isDate(observed, equalTo: now, toGranularity: component)
+        }
+        let videos = inPeriod.filter(\.isVideo)
+        let videoTime = videos.reduce(0.0) { $0 + $1.duration }
+
+        return VStack(alignment: .leading, spacing: Space.s) {
+            Text(title)
+                .font(Typo.sectionTitle)
+
+            recapLine(String(localized: "Captured in this period"), inPeriod.count.formatted())
+            recapLine(String(localized: "Newly observed hidden"), observedInPeriod.count.formatted())
+            recapLine(String(localized: "Videos"),
+                      videos.isEmpty ? "0" : "\(videos.count.formatted()) · \(videoTime.shortDuration)")
+            recapLine(String(localized: "Favorites"),
+                      inPeriod.filter(\.isFavorite).count.formatted())
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(Space.l)
+        .background(Palette.surface, in: .rect(cornerRadius: Radius.card))
+    }
+
+    private func recapLine(_ label: String, _ value: String) -> some View {
+        HStack {
+            Text(label)
+                .font(Typo.label)
+                .foregroundStyle(Palette.textSecondary)
+            Spacer()
+            Text(value)
+                .font(Typo.label.monospacedDigit())
+        }
     }
 
     // MARK: Charts

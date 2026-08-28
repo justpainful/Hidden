@@ -17,6 +17,7 @@ struct ViewerView: View {
     @State private var confirmUnhide = false
     @State private var confirmDelete = false
     @State private var actionError: String?
+    @State private var presentedAsset: HiddenAsset?
 
     private var current: HiddenAsset? {
         assets.indices.contains(index) ? assets[index] : nil
@@ -92,6 +93,9 @@ struct ViewerView: View {
                     catch { actionError = error.localizedDescription }
                 }
             }
+        }
+        .fullScreenCover(item: $presentedAsset) { asset in
+            PresentationView(asset: asset) { presentedAsset = nil }
         }
         .alert(String(localized: "That didn't work"),
                isPresented: Binding(get: { actionError != nil },
@@ -189,6 +193,11 @@ struct ViewerView: View {
                 showsNote = true
             } label: {
                 Label(String(localized: "Note"), systemImage: "note.text")
+            }
+            Button {
+                presentedAsset = current
+            } label: {
+                Label(String(localized: "Present This Item"), systemImage: "person.2.crop.square.stack")
             }
 
             if !app.settings.readOnlyMode {

@@ -15,6 +15,13 @@ enum HiddenStore {
     ])
 
     static func makeContainer(inMemory: Bool = false) -> ModelContainer {
+        if !inMemory {
+            // A fresh sandbox (first launch, and every test-host run) has no Application
+            // Support directory yet, and SwiftData reports that as a store failure rather
+            // than creating it.
+            try? FileManager.default.createDirectory(
+                at: URL.applicationSupportDirectory, withIntermediateDirectories: true)
+        }
         let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: inMemory)
         do {
             return try ModelContainer(for: schema, configurations: [configuration])
@@ -211,6 +218,45 @@ final class MetadataStore {
     func allTags() -> [TagRecord] {
         let descriptor = FetchDescriptor<TagRecord>(sortBy: [SortDescriptor(\.name)])
         return (try? context.fetch(descriptor)) ?? []
+    }
+
+    // MARK: Smart collections
+
+    func allSmartCollections() -> [SmartCollectionRecord] {
+        let descriptor = FetchDescriptor<SmartCollectionRecord>(
+            sortBy: [SortDescriptor(\.createdAt)])
+        return (try? context.fetch(descriptor)) ?? []
+    }
+
+    func addSmartCollection(name: String, filter: LibraryFilter, sort: LibrarySort) {
+        guard let rules = try? JSONEncoder().encode(filter) else { return }
+        context.insert(SmartCollectionRecord(name: name, rulesData: rules, sort: sort))
+        save()
+    }
+
+    func deleteSmartCollection(_ record: SmartCollectionRecord) {
+        context.delete(record)
+        save()
+    }
+
+    // MARK: Queues
+
+    func allQueues() -> [QueueRecord] {
+        let descriptor = FetchDescriptor<QueueRecord>(
+            predicate: #Predicate { $0.isSaved },
+            sortBy: [SortDescriptor(\.createdAt, order: .reverse)])
+        return (try? context.fetch(descriptor)) ?? []
+    }
+
+    func addQueue(name: String, itemIDs: [String]) {
+        context.insert(QueueRecord(name: name, itemIDs: itemIDs))
+        log(.queueCreated, assetID: nil)
+        save()
+    }
+
+    func deleteQueue(_ record: QueueRecord) {
+        context.delete(record)
+        save()
     }
 
     // MARK: Snapshots
