@@ -31,9 +31,10 @@ struct RootView: View {
     @Environment(\.app) private var app
     @Environment(\.scenePhase) private var scenePhase
 
-    @State private var selection: AppTab = LaunchOptions.startTab ?? .inbox
+    @State private var selection: AppTab = .inbox
     /// True while the scene is not active, so the app switcher never shows readable media.
     @State private var isCovered = false
+    @State private var didApplyLaunchTab = false
 
     var body: some View {
         ZStack {
@@ -68,6 +69,12 @@ struct RootView: View {
             }
         }
         .task {
+            if !didApplyLaunchTab {
+                didApplyLaunchTab = true
+                selection = LaunchOptions.startTab
+                    ?? AppTab(rawValue: app.settings.launchTabRaw)
+                    ?? .inbox
+            }
             if app.accessReady {
                 await app.model.refresh()
             }

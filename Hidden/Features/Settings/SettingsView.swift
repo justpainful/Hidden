@@ -107,6 +107,13 @@ struct SettingsView: View {
                     Text(choice.title).tag(choice)
                 }
             }
+            Picker(String(localized: "Open On"), selection: Binding(
+                get: { AppTab(rawValue: app.settings.launchTabRaw) ?? .inbox },
+                set: { app.settings.launchTabRaw = $0.rawValue })) {
+                ForEach(AppTab.allCases) { tab in
+                    Text(tab.title).tag(tab)
+                }
+            }
         }
     }
 
@@ -225,6 +232,11 @@ struct SettingsView: View {
             NavigationLink(String(localized: "About the Hidden Album")) {
                 AboutLimitationView()
             }
+            #if DEBUG
+            NavigationLink("Diagnostics") {
+                DiagnosticsView()
+            }
+            #endif
         } header: {
             Text("About")
         }

@@ -9,7 +9,7 @@ struct InboxView: View {
     @Environment(\.app) private var app
 
     @State private var showsSettings = false
-    @State private var reviewQueue: [HiddenAsset]?
+    @State private var reviewTarget: ReviewQueueTarget?
     @State private var viewerTarget: ViewerTarget?
     @State private var viewerAssets: [HiddenAsset] = []
 
@@ -64,7 +64,7 @@ struct InboxView: View {
                 }
                 .padding(.vertical, Space.l)
             }
-            .background(Palette.canvas)
+            .background(Palette.groupedCanvas)
             .navigationTitle(Text("Inbox"))
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -77,8 +77,8 @@ struct InboxView: View {
             }
             .refreshable { await app.model.refresh() }
             .sheet(isPresented: $showsSettings) { SettingsView() }
-            .fullScreenCover(item: reviewQueueTarget) { target in
-                ReviewView(queue: target.assets) { reviewQueue = nil }
+            .fullScreenCover(item: $reviewTarget) { target in
+                ReviewView(queue: target.assets) { reviewTarget = nil }
             }
             .fullScreenCover(item: $viewerTarget) { target in
                 ViewerView(assets: viewerAssets, index: target.index) { viewerTarget = nil }
@@ -98,13 +98,6 @@ struct InboxView: View {
 
     private var sessions: [HiddenSession] {
         SessionGrouping.sessions(assets: app.model.assets, meta: app.model.metaByID)
-    }
-
-    /// A bridge so `fullScreenCover(item:)` gets identity for the review queue.
-    private var reviewQueueTarget: Binding<ReviewQueueTarget?> {
-        Binding(
-            get: { reviewQueue.map { ReviewQueueTarget(assets: $0) } },
-            set: { reviewQueue = $0?.assets })
     }
 
     // MARK: Sections
@@ -253,7 +246,7 @@ struct InboxView: View {
 
             HStack(spacing: Space.m) {
                 Button {
-                    reviewQueue = unreviewed
+                    reviewTarget = ReviewQueueTarget(assets: unreviewed)
                 } label: {
                     Label(String(localized: "Review All"), systemImage: "checkmark.rectangle.stack")
                         .font(Typo.control)
@@ -263,7 +256,7 @@ struct InboxView: View {
                 .buttonStyle(.borderedProminent)
 
                 Button {
-                    reviewQueue = Array(unreviewed.prefix(25))
+                    reviewTarget = ReviewQueueTarget(assets: Array(unreviewed.prefix(25)))
                 } label: {
                     Text("First 25")
                         .font(Typo.control)
@@ -310,7 +303,7 @@ struct InboxView: View {
     }
 }
 
-private struct ReviewQueueTarget: Identifiable {
+struct ReviewQueueTarget: Identifiable {
     let id = UUID()
     var assets: [HiddenAsset]
 }

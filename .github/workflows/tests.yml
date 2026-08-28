@@ -61,6 +61,10 @@ jobs:
           grep -E "error:" test.log | sort -u | head -n 60 || true
           echo "--- failing expectations ---"
           grep -E "(recorded an issue|Expectation failed)" test.log | sort -u | head -n 60 || true
+          # A crashed test process names no expectation at all; the fatal message and the
+          # frames around it are the only diagnosis there is.
+          echo "--- crash context ---"
+          grep -B5 -A25 -E "(Fatal error|Precondition failed|signal SIG|Restarting after unexpected)" test.log | head -n 120 || true
           {
             echo "## Failing tests"
             echo '```'

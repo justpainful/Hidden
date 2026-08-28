@@ -9,6 +9,9 @@ import SwiftUI
 /// else.
 enum Palette {
     static let canvas      = Color(uiColor: .systemBackground)
+    /// The ground for card-based screens. Cards drawn in `surface` are only visible against
+    /// *this*; on `canvas` they disappear in light mode (white on white).
+    static let groupedCanvas = Color(uiColor: .systemGroupedBackground)
     static let surface     = Color(uiColor: .secondarySystemGroupedBackground)
     static let surfaceSunk = Color(uiColor: .secondarySystemFill)
 

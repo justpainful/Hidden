@@ -57,23 +57,36 @@ final class PhotoMediaProvider: MediaProviding {
     // MARK: Prefetching
 
     func startCaching(_ assetIDs: [String], side: CGFloat) {
-        let found = HiddenPhotoLibrary.assets(for: assetIDs)
-        let assets = assetIDs.compactMap { found[$0] }
-        guard !assets.isEmpty else { return }
-        manager.startCachingImages(for: assets,
-                                   targetSize: CGSize(width: side, height: side),
-                                   contentMode: .aspectFill,
-                                   options: Self.options(for: .browsing))
+        // Resolving identifiers is a synchronous query against the Photos database; doing
+        // it where the scroll is drawn is the stall the warming exists to remove.
+        Task.detached(priority: .utility) { [weak self] in
+            let found = HiddenPhotoLibrary.assets(for: assetIDs)
+            let assets = assetIDs.compactMap { found[$0] }
+            guard !assets.isEmpty else { return }
+            await self?.cache(assets, side: side, start: true)
+        }
     }
 
     func stopCaching(_ assetIDs: [String], side: CGFloat) {
-        let found = HiddenPhotoLibrary.assets(for: assetIDs)
-        let assets = assetIDs.compactMap { found[$0] }
-        guard !assets.isEmpty else { return }
-        manager.stopCachingImages(for: assets,
-                                  targetSize: CGSize(width: side, height: side),
-                                  contentMode: .aspectFill,
-                                  options: Self.options(for: .browsing))
+        Task.detached(priority: .utility) { [weak self] in
+            let found = HiddenPhotoLibrary.assets(for: assetIDs)
+            let assets = assetIDs.compactMap { found[$0] }
+            guard !assets.isEmpty else { return }
+            await self?.cache(assets, side: side, start: false)
+        }
+    }
+
+    private func cache(_ assets: [PHAsset], side: CGFloat, start: Bool) {
+        let size = CGSize(width: side, height: side)
+        if start {
+            manager.startCachingImages(for: assets, targetSize: size,
+                                       contentMode: .aspectFill,
+                                       options: Self.options(for: .browsing))
+        } else {
+            manager.stopCachingImages(for: assets, targetSize: size,
+                                      contentMode: .aspectFill,
+                                      options: Self.options(for: .browsing))
+        }
     }
 
     func clearMemoryCache() {

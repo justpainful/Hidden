@@ -131,6 +131,16 @@
         }
       }
     },
+    "A backup carries tags, ratings, notes, collections and observation dates — never photos or videos. Identifiers that no longer resolve import as dormant records.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "النسخة الاحتياطية تحمل الوسوم والتقييمات والملاحظات والمجموعات وتواريخ الرصد — وليس الصور أو الفيديوهات أبدًا. المعرّفات التي لم تعد موجودة تُستورد كسجلات خاملة."
+          }
+        }
+      }
+    },
     "A sample across time": {
       "localizations": {
         "ar": {
@@ -157,6 +167,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "حول ألبوم المخفي"
+          }
+        }
+      }
+    },
+    "Add": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إضافة"
           }
         }
       }
@@ -291,6 +311,26 @@
         }
       }
     },
+    "Back 10 Seconds": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "رجوع 10 ثوانٍ"
+          }
+        }
+      }
+    },
+    "Backup": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "النسخ الاحتياطي"
+          }
+        }
+      }
+    },
     "Bar chart of items captured per year": {
       "localizations": {
         "ar": {
@@ -307,6 +347,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "تمويه المصغّرات"
+          }
+        }
+      }
+    },
+    "Bookmark This Moment": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إضافة علامة عند هذه اللحظة"
+          }
+        }
+      }
+    },
+    "Bookmarks": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "العلامات المرجعية"
           }
         }
       }
@@ -331,6 +391,26 @@
         }
       }
     },
+    "Cancel": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إلغاء"
+          }
+        }
+      }
+    },
+    "Capture Activity": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "نشاط الالتقاط"
+          }
+        }
+      }
+    },
     "Captured": {
       "localizations": {
         "ar": {
@@ -347,6 +427,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "الالتقاط حسب السنة"
+          }
+        }
+      }
+    },
+    "Captured in this period": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التُقط في هذه الفترة"
           }
         }
       }
@@ -441,6 +531,16 @@
         }
       }
     },
+    "Continue Watching": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "متابعة المشاهدة"
+          }
+        }
+      }
+    },
     "Dark": {
       "localizations": {
         "ar": {
@@ -491,6 +591,26 @@
         }
       }
     },
+    "Delete": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حذف"
+          }
+        }
+      }
+    },
+    "Delete this item from your Photos library? This affects Apple Photos and iCloud Photos, and moves it to Recently Deleted.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "هل تريد حذف هذا العنصر من مكتبة الصور؟ هذا يؤثر على تطبيق الصور وصور iCloud وينقله إلى «المحذوفة مؤخرًا»."
+          }
+        }
+      }
+    },
     "Dimensions": {
       "localizations": {
         "ar": {
@@ -531,12 +651,32 @@
         }
       }
     },
+    "End Presentation": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إنهاء العرض"
+          }
+        }
+      }
+    },
     "Every item played once — nothing repeated.": {
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
             "value": "عُرض كل عنصر مرة واحدة — دون أي تكرار."
+          }
+        }
+      }
+    },
+    "Everything": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كل شيء"
           }
         }
       }
@@ -611,6 +751,26 @@
         }
       }
     },
+    "First Observed": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أول رصد"
+          }
+        }
+      }
+    },
+    "First Observed Activity": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "نشاط أول رصد"
+          }
+        }
+      }
+    },
     "First Observed Favorite": {
       "localizations": {
         "ar": {
@@ -661,12 +821,32 @@
         }
       }
     },
+    "Forward 10 Seconds": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تقديم 10 ثوانٍ"
+          }
+        }
+      }
+    },
     "Has Location": {
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
             "value": "يحتوي على موقع"
+          }
+        }
+      }
+    },
+    "Heatmap Mode": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "وضع الخريطة الحرارية"
           }
         }
       }
@@ -731,6 +911,16 @@
         }
       }
     },
+    "Import Backup": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "استيراد نسخة احتياطية"
+          }
+        }
+      }
+    },
     "In Pool": {
       "localizations": {
         "ar": {
@@ -761,6 +951,16 @@
         }
       }
     },
+    "Include Viewing History": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تضمين سجل المشاهدة"
+          }
+        }
+      }
+    },
     "Incognito": {
       "localizations": {
         "ar": {
@@ -777,6 +977,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "وضع التخفي يمنع تسجيل أي سجل مشاهدة. وضع القراءة فقط يمنع التطبيق من تغيير أي شيء في تطبيق الصور."
+          }
+        }
+      }
+    },
+    "Inferred from when this app first observed each item — not Apple's own history.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مستنتجة من وقت أول رصد للتطبيق لكل عنصر — وليست سجل Apple نفسه."
           }
         }
       }
@@ -857,6 +1067,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "الطول"
+          }
+        }
+      }
+    },
+    "Less": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أقل"
           }
         }
       }
@@ -971,6 +1191,16 @@
         }
       }
     },
+    "Make this item visible again in your Photos library?": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "هل تريد جعل هذا العنصر مرئيًا مجددًا في مكتبة الصور؟"
+          }
+        }
+      }
+    },
     "Mark Reviewed": {
       "localizations": {
         "ar": {
@@ -1011,6 +1241,26 @@
         }
       }
     },
+    "More": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المزيد"
+          }
+        }
+      }
+    },
+    "More Playback Options": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "خيارات تشغيل إضافية"
+          }
+        }
+      }
+    },
     "Most Viewed": {
       "localizations": {
         "ar": {
@@ -1021,12 +1271,42 @@
         }
       }
     },
+    "Mute": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كتم"
+          }
+        }
+      }
+    },
     "Mute Videos by Default": {
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
             "value": "كتم الفيديو افتراضيًا"
+          }
+        }
+      }
+    },
+    "My Collections": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مجموعاتي"
+          }
+        }
+      }
+    },
+    "Name": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الاسم"
           }
         }
       }
@@ -1071,6 +1351,26 @@
         }
       }
     },
+    "New Smart Collection": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مجموعة ذكية جديدة"
+          }
+        }
+      }
+    },
+    "New Tag": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "وسم جديد"
+          }
+        }
+      }
+    },
     "Newest Captured": {
       "localizations": {
         "ar": {
@@ -1097,6 +1397,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "رُصدت حديثًا"
+          }
+        }
+      }
+    },
+    "Newly observed hidden": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "رُصد إخفاؤه حديثًا"
           }
         }
       }
@@ -1171,6 +1481,16 @@
         }
       }
     },
+    "No media available.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا توجد وسائط متاحة."
+          }
+        }
+      }
+    },
     "Not downloaded from iCloud": {
       "localizations": {
         "ar": {
@@ -1191,6 +1511,16 @@
         }
       }
     },
+    "Note": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ملاحظة"
+          }
+        }
+      }
+    },
     "Nothing is uploaded, tracked or analyzed anywhere else.": {
       "localizations": {
         "ar": {
@@ -1207,6 +1537,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "لا جديد منذ آخر فحص."
+          }
+        }
+      }
+    },
+    "Nothing to Show": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا يوجد ما يُعرض"
+          }
+        }
+      }
+    },
+    "OK": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حسنًا"
+          }
+        }
+      }
+    },
+    "Observation dates appear after the app has seen your library at least once.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تظهر تواريخ الرصد بعد أن يرى التطبيق مكتبتك مرة واحدة على الأقل."
           }
         }
       }
@@ -1287,6 +1647,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "واحدة من كل شهر"
+          }
+        }
+      }
+    },
+    "Open On": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الفتح على"
           }
         }
       }
@@ -1451,12 +1821,42 @@
         }
       }
     },
+    "Playback position": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "موضع التشغيل"
+          }
+        }
+      }
+    },
     "Portrait": {
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
             "value": "عمودي"
+          }
+        }
+      }
+    },
+    "Prepare Metadata Backup": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تجهيز نسخة احتياطية للبيانات"
+          }
+        }
+      }
+    },
+    "Present This Item": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "عرض هذا العنصر"
           }
         }
       }
@@ -1481,12 +1881,32 @@
         }
       }
     },
+    "Queue": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "قائمة تشغيل"
+          }
+        }
+      }
+    },
     "Queue finished": {
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
             "value": "انتهت القائمة"
+          }
+        }
+      }
+    },
+    "Queue name": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اسم القائمة"
           }
         }
       }
@@ -1501,12 +1921,32 @@
         }
       }
     },
+    "Rate": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تقييم"
+          }
+        }
+      }
+    },
     "Rated": {
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
             "value": "مقيّمة"
+          }
+        }
+      }
+    },
+    "Rating": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التقييم"
           }
         }
       }
@@ -1521,6 +1961,16 @@
         }
       }
     },
+    "Recap": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ملخص"
+          }
+        }
+      }
+    },
     "Recently Favorited": {
       "localizations": {
         "ar": {
@@ -1531,12 +1981,42 @@
         }
       }
     },
+    "Recently Finished": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المكتملة حديثًا"
+          }
+        }
+      }
+    },
     "Recently Observed": {
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
             "value": "المرصودة حديثًا"
+          }
+        }
+      }
+    },
+    "Recently Viewed": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المشاهدة حديثًا"
+          }
+        }
+      }
+    },
+    "Rediscover": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إعادة اكتشاف"
           }
         }
       }
@@ -1611,6 +2091,16 @@
         }
       }
     },
+    "Restart": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إعادة التشغيل"
+          }
+        }
+      }
+    },
     "Resume Last Session": {
       "localizations": {
         "ar": {
@@ -1657,6 +2147,46 @@
           "stringUnit": {
             "state": "translated",
             "value": "تمت المراجعة"
+          }
+        }
+      }
+    },
+    "Rules": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "القواعد"
+          }
+        }
+      }
+    },
+    "Save": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حفظ"
+          }
+        }
+      }
+    },
+    "Save as Queue": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حفظ كقائمة تشغيل"
+          }
+        }
+      }
+    },
+    "Saved Queues": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "قوائم التشغيل المحفوظة"
           }
         }
       }
@@ -1711,6 +2241,16 @@
         }
       }
     },
+    "Sessions": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الجلسات"
+          }
+        }
+      }
+    },
     "Settings": {
       "localizations": {
         "ar": {
@@ -1727,6 +2267,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "الشكل"
+          }
+        }
+      }
+    },
+    "Share Backup File": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مشاركة ملف النسخة الاحتياطية"
           }
         }
       }
@@ -1761,6 +2311,16 @@
         }
       }
     },
+    "Smart collection": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مجموعة ذكية"
+          }
+        }
+      }
+    },
     "Sort": {
       "localizations": {
         "ar": {
@@ -1777,6 +2337,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "المصدر"
+          }
+        }
+      }
+    },
+    "Speed": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "السرعة"
           }
         }
       }
@@ -1811,12 +2381,32 @@
         }
       }
     },
+    "Stores references to the selected items — never copies.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تُخزَّن مراجع للعناصر المحددة — وليست نسخًا أبدًا."
+          }
+        }
+      }
+    },
     "System": {
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
             "value": "النظام"
+          }
+        }
+      }
+    },
+    "Tag name": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اسم الوسم"
           }
         }
       }
@@ -1831,6 +2421,26 @@
         }
       }
     },
+    "Tags": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الوسوم"
+          }
+        }
+      }
+    },
+    "That didn't work": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لم ينجح ذلك"
+          }
+        }
+      }
+    },
     "The oldest hidden media": {
       "localizations": {
         "ar": {
@@ -1841,12 +2451,52 @@
         }
       }
     },
+    "This file isn't a Hidden metadata backup.": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "هذا الملف ليس نسخة احتياطية لبيانات التطبيق."
+          }
+        }
+      }
+    },
+    "This video isn't available right now": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "هذا الفيديو غير متاح حاليًا"
+          }
+        }
+      }
+    },
     "Time Lapse": {
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
             "value": "الفاصل الزمني"
+          }
+        }
+      }
+    },
+    "Timeline": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الخط الزمني"
+          }
+        }
+      }
+    },
+    "Timeline Date": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تاريخ الخط الزمني"
           }
         }
       }
@@ -1891,6 +2541,16 @@
         }
       }
     },
+    "Unhide": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إظهار"
+          }
+        }
+      }
+    },
     "Unlock": {
       "localizations": {
         "ar": {
@@ -1907,6 +2567,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "فتح قفل التطبيق"
+          }
+        }
+      }
+    },
+    "Unmute": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إلغاء الكتم"
           }
         }
       }
@@ -2011,6 +2681,26 @@
         }
       }
     },
+    "Videos played to the end recently": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "فيديوهات اكتملت مشاهدتها حديثًا"
+          }
+        }
+      }
+    },
+    "Videos you started but didn't finish": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "فيديوهات بدأتها ولم تكملها"
+          }
+        }
+      }
+    },
     "Viewed": {
       "localizations": {
         "ar": {
@@ -2061,6 +2751,36 @@
         }
       }
     },
+    "What you opened lately": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ما فتحته مؤخرًا"
+          }
+        }
+      }
+    },
+    "When the media was captured": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "وقت التقاط الوسائط"
+          }
+        }
+      }
+    },
+    "When this app first observed it hidden": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "وقت أول رصد للتطبيق لإخفائها"
+          }
+        }
+      }
+    },
     "With Location": {
       "localizations": {
         "ar": {
@@ -2077,6 +2797,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "بدون موقع"
+          }
+        }
+      }
+    },
+    "Year, month, tag, video…": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "سنة، شهر، وسم، فيديو…"
           }
         }
       }
@@ -2127,6 +2857,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "مفضلاتك الخاصة"
+          }
+        }
+      }
+    },
+    "photo": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "صورة"
+          }
+        }
+      }
+    },
+    "video": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "فيديو"
           }
         }
       }

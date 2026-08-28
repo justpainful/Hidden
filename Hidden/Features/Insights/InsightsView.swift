@@ -37,7 +37,7 @@ struct InsightsView: View {
             .padding(.horizontal, Space.gutter)
             .padding(.vertical, Space.l)
         }
-        .background(Palette.canvas)
+        .background(Palette.groupedCanvas)
     }
 
     // MARK: Stats

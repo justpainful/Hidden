@@ -50,6 +50,8 @@ final class AppSettings {
     var defaultSortRaw: String { didSet { store(defaultSortRaw, "defaultSort") } }
     /// Columns in the library grid at launch.
     var gridColumns: Int { didSet { store(gridColumns, "gridColumns") } }
+    /// Which tab the app opens on.
+    var launchTabRaw: String { didSet { store(launchTabRaw, "launchTab") } }
 
     // Appearance
     var appearance: AppearanceChoice { didSet { store(appearance.rawValue, "appearance") } }
@@ -75,6 +77,7 @@ final class AppSettings {
         autoplayNext = defaults.object(forKey: "autoplayNext") as? Bool ?? true
         defaultSortRaw = defaults.string(forKey: "defaultSort") ?? LibrarySort.recentlyObserved.rawValue
         gridColumns = defaults.object(forKey: "gridColumns") as? Int ?? 3
+        launchTabRaw = defaults.string(forKey: "launchTab") ?? "inbox"
         appearance = AppearanceChoice(rawValue: defaults.string(forKey: "appearance") ?? "") ?? .system
     }
 

@@ -94,6 +94,9 @@ struct AssetImageView: View {
 
 /// Marks videos and Live Photos without covering the image. Furniture, not content: it does
 /// not grow past the tile it belongs to, and its meaning is carried by the spoken label.
+///
+/// It draws nothing at all for a plain photo — the padding and scrim are modifiers, and a
+/// badge whose content is empty still renders them as a small blank pill on every tile.
 struct MediaBadge: View {
     let asset: HiddenAsset
 
@@ -101,10 +104,16 @@ struct MediaBadge: View {
     @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
 
     var body: some View {
+        if asset.isVideo || asset.isLivePhoto {
+            badge
+        }
+    }
+
+    private var badge: some View {
         Group {
             if asset.isVideo {
                 Label(asset.duration.shortDuration, systemImage: "play.fill")
-            } else if asset.isLivePhoto {
+            } else {
                 Label(String(localized: "Live"), systemImage: "livephoto")
             }
         }

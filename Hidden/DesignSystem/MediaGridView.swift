@@ -11,6 +11,13 @@ struct MediaGridView: View {
     var onOpen: (Int) -> Void
 
     @Environment(\.app) private var app
+    @Environment(\.displayScale) private var displayScale
+    /// The centre of the last warmed window, so scrolling only re-warms every `warmStep`
+    /// tiles instead of on every appearance.
+    @State private var warmedCentre = Int.min
+
+    private let warmStep = 12
+    private let warmAhead = 48
 
     private var gridItems: [GridItem] {
         Array(repeating: GridItem(.flexible(), spacing: 2), count: max(columns, 1))
@@ -20,8 +27,24 @@ struct MediaGridView: View {
         LazyVGrid(columns: gridItems, spacing: 2) {
             ForEach(Array(assets.enumerated()), id: \.element.id) { index, asset in
                 tile(asset, index: index)
+                    .onAppear { warmAround(index) }
             }
         }
+        .onDisappear {
+            warmedCentre = .min
+        }
+    }
+
+    /// Tell the media provider which frames are about to come over the edge, at the same
+    /// bucketed size the tiles will actually request — a warm at any other size is wasted.
+    private func warmAround(_ index: Int) {
+        guard abs(index - warmedCentre) >= warmStep else { return }
+        warmedCentre = index
+        let side = PhotoMediaProvider.requestSide(forSide: 300, scale: displayScale)
+        let lower = max(0, index - warmStep)
+        let upper = min(assets.count, index + warmAhead)
+        guard lower < upper else { return }
+        app.media.startCaching(assets[lower..<upper].map(\.localIdentifier), side: side)
     }
 
     @ViewBuilder

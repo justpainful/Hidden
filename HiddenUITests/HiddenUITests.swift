@@ -208,12 +208,17 @@ final class HiddenUITests: XCTestCase {
 
     @discardableResult
     private func safeTap(_ element: XCUIElement, fallback: XCUIElement? = nil) -> Bool {
-        if element.waitForExistence(timeout: 6), element.isHittable {
+        // On-screen as well as hittable: XCUITest will happily report an element from a
+        // dismissing cover as hittable, then fail the whole test trying to auto-scroll to a
+        // frame that no longer exists.
+        if element.waitForExistence(timeout: 6), element.isHittable,
+           app.frame.intersects(element.frame) {
             element.tap()
             settle()
             return true
         }
-        if let fallback, fallback.exists, fallback.isHittable {
+        if let fallback, fallback.exists, fallback.isHittable,
+           app.frame.intersects(fallback.frame) {
             fallback.tap()
             settle()
             return true
