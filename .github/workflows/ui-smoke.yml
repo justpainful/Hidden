@@ -1,0 +1,100 @@
+name: UI Smoke
+
+# Compile-only CI cannot catch the failure mode that actually hurts here: a screen that
+# renders letterboxed, cropped, clipped or blank. This lane boots a real simulator, launches
+# the app against its deterministic mock library, then drives it through every surface with
+# XCUITest and uploads a screenshot of each one.
+#
+# The mock library rather than seeded media, by necessity: `simctl addmedia` cannot mark an
+# asset hidden, so a real simulator photo library can never exercise the Hidden flows at all.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ui-smoke-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    name: Drive the app and photograph it
+    runs-on: macos-latest
+    timeout-minutes: 90
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select newest Xcode
+        run: |
+          set -euo pipefail
+          latest=$(ls -d /Applications/Xcode*.app 2>/dev/null | sort -V | tail -n1)
+          [ -n "$latest" ] && sudo xcode-select -s "$latest/Contents/Developer"
+          xcodebuild -version
+
+      - name: Pick a simulator
+        id: sim
+        run: |
+          set -euo pipefail
+          udid=$(xcrun simctl list devices available --json | python3 Scripts/pick_simulator.py iPhone)
+          echo "udid=$udid" >> "$GITHUB_OUTPUT"
+          echo "Using simulator $udid"
+
+      - name: Boot simulator
+        run: |
+          set -euo pipefail
+          xcrun simctl boot "${{ steps.sim.outputs.udid }}" || true
+          xcrun simctl bootstatus "${{ steps.sim.outputs.udid }}" -b
+
+      - name: Run the UI tour
+        run: |
+          set -o pipefail
+          xcodebuild test \
+            -project Hidden.xcodeproj \
+            -scheme Hidden \
+            -configuration Debug \
+            -destination "id=${{ steps.sim.outputs.udid }}" \
+            -only-testing:HiddenUITests \
+            -derivedDataPath .build \
+            -resultBundlePath Result.xcresult \
+            CODE_SIGNING_ALLOWED=NO \
+            2>&1 | tail -n 300
+
+      - name: Report why a test failed
+        if: always()
+        run: |
+          xcrun xcresulttool get test-results summary --path Result.xcresult --format json > summary.json 2>/dev/null || { echo "no result bundle"; exit 0; }
+          python3 -c "import json; d=json.load(open('summary.json')); fs=d.get('testFailures') or []; print('No test failures recorded.') if not fs else [print('::error::%s -- %s' % (f.get('testName','?'), f.get('failureText',''))) for f in fs]"
+
+      - name: Export screenshots
+        if: always()
+        run: |
+          set -euo pipefail
+          mkdir -p Attachments Screenshots
+          xcrun xcresulttool export attachments \
+            --path Result.xcresult \
+            --output-path Attachments || echo "::warning::xcresulttool could not export attachments"
+          python3 Scripts/flatten_attachments.py Attachments Screenshots
+          ls -la Screenshots
+
+      - name: Check for crash reports
+        if: always()
+        run: |
+          set -euo pipefail
+          dev="$HOME/Library/Developer/CoreSimulator/Devices/${{ steps.sim.outputs.udid }}"
+          crashes=$(find "$dev/data/Library/Logs" -name "Hidden-*.ips" 2>/dev/null || true)
+          if [ -n "$crashes" ]; then
+            echo "::error::App crashed during the tour"
+            for c in $crashes; do echo "--- $c ---"; head -n 50 "$c"; done
+            exit 1
+          fi
+          echo "No crash reports."
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots-iPhone
+          path: Screenshots
+          retention-days: 14
