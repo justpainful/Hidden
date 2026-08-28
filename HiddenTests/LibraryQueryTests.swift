@@ -102,7 +102,10 @@ struct LibraryQueryTests {
             result = LibraryQuery.run(assets, filter: filter, sort: .longestVideo, meta: [:])
         }
         #expect(!result.isEmpty)
-        #expect(result.allSatisfy(\.isVideo))
+        // A closure rather than `\.isVideo` as a function: the new typed-throws stdlib
+        // signatures make key-path-as-function conversions read as throwing inside the
+        // #expect macro's rewrite, which fails to compile.
+        #expect(result.allSatisfy { $0.isVideo })
         // Ordered by duration descending.
         for pair in zip(result, result.dropFirst()) {
             #expect(pair.0.duration >= pair.1.duration)
@@ -116,8 +119,8 @@ struct LibraryQueryTests {
         let first = MockPhotoLibrary.generate(count: 500, seed: 9)
         let second = MockPhotoLibrary.generate(count: 500, seed: 9)
         #expect(first == second)
-        #expect(first.contains(where: \.isVideo))
-        #expect(first.contains(where: \.isFavorite))
+        #expect(first.contains { $0.isVideo })
+        #expect(first.contains { $0.isFavorite })
         #expect(first.contains { !$0.isVideo })
     }
 }

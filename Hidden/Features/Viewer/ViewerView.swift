@@ -120,56 +120,16 @@ struct ViewerView: View {
     }
 }
 
-/// One page of the viewer: a zoomable photo, or a video player once the item resolves.
+/// One page of the viewer: a zoomable photo, or the app's own video player.
 private struct ViewerPage: View {
     let asset: HiddenAsset
     let isCurrent: Bool
 
-    @Environment(\.app) private var app
-    @State private var player: AVPlayer?
-
     var body: some View {
-        Group {
-            if asset.isVideo {
-                videoContent
-            } else {
-                ZoomableAssetView(assetID: asset.localIdentifier)
-            }
-        }
-        .task(id: isCurrent) {
-            guard asset.isVideo else { return }
-            if isCurrent, player == nil {
-                if let real = app.media as? PhotoMediaProvider,
-                   let item = await real.playerItem(for: asset.localIdentifier) {
-                    let player = AVPlayer(playerItem: item)
-                    player.isMuted = app.settings.muteByDefault
-                    self.player = player
-                }
-            } else if !isCurrent {
-                player?.pause()
-            }
-        }
-    }
-
-    @ViewBuilder
-    private var videoContent: some View {
-        if let player {
-            VideoPlayer(player: player)
-                .ignoresSafeArea()
+        if asset.isVideo {
+            HiddenVideoPlayer(asset: asset, isCurrent: isCurrent)
         } else {
-            // The poster frame while the item resolves — or forever, in the mock, which has
-            // no real clips to play.
-            ZStack {
-                AssetImageView(assetID: asset.localIdentifier,
-                               targetSide: 1200,
-                               purpose: .display,
-                               contentMode: .fit)
-                Image(systemName: "play.circle.fill")
-                    .font(Typo.glyph(56, .regular))
-                    .foregroundStyle(.white.opacity(0.9))
-                    .shadow(color: .black.opacity(0.5), radius: 6)
-                    .accessibilityHidden(true)
-            }
+            ZoomableAssetView(assetID: asset.localIdentifier)
         }
     }
 }
