@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Hidden</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+
+	<!-- Photos. Everything stays on device; the app is a viewing and organization layer over
+	     the user's own library. Read-write exists for the explicit, confirmed actions the user
+	     can take (favorite, unhide, delete) and nothing else. -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Hidden organizes and displays media from your Photos library, focused on your Hidden album. Everything stays on this device and nothing is uploaded.</string>
+
+	<!-- The app's own lock, independent of the system Hidden album protection. -->
+	<key>NSFaceIDUsageDescription</key>
+	<string>Hidden uses Face ID to lock the app so only you can open it.</string>
+
+	<!--
+	  IMPORTANT: UILaunchScreen must exist.
+
+	  Without it iOS runs the app in legacy compatibility mode: the scene is letterboxed to a
+	  smaller reference size, which shows up as a cropped screen with black bars on modern
+	  iPhones. An empty-but-present dict opts into full native resolution; the color key makes
+	  the launch match the app canvas instead of flashing white.
+	-->
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>LaunchBackground</string>
+	</dict>
+
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>arm64</string>
+	</array>
+
+	<!--
+	  Landscape matters here: the app exists to look at photographs and play video, and a
+	  landscape photo forced into a portrait window shows at a third of the size the screen
+	  could give it. Upside-down stays out on iPhone for the reason Apple leaves it out.
+	-->
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
+</dict>
+</plist>
